@@ -18,7 +18,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		$Marker2D/Sprite2D/AnimationPlayer.play("jump")
 		$Marker2D/Sprite2D/AnimationPlayer.queue("jump_midair")
@@ -26,7 +26,7 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("move-left", "move-right")
 	
 	if direction:
 		if is_on_floor() and jumped==false:
