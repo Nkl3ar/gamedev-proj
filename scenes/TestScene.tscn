@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2g7g6exmvd3v"]
 
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreen.tres" id="1_dc8s4"]
-[ext_resource type="PackedScene" uid="uid://cuteudukxojxt" path="res://prefabs/Player.tscn" id="2_djqon"]
+[ext_resource type="PackedScene" path="res://prefabs/Player.tscn" id="2_djqon"]
 
 [node name="Node2D" type="Node2D"]
 
