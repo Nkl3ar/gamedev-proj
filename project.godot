@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="Igre Projekt"
+run/main_scene="res://scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManagerScript="*res://scripts/GameManagerScript.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
 
 [dotnet]
 
