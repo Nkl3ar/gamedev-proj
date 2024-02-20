@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 GameManagerScript="*res://scripts/GameManagerScript.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+
 [dotnet]
 
 project/assembly_name="Igre Projekt"
