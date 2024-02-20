@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2g7g6exmvd3v"]
+[gd_scene load_steps=4 format=3 uid="uid://d2g7g6exmvd3v"]
 
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreen.tres" id="1_dc8s4"]
 [ext_resource type="PackedScene" path="res://prefabs/Player.tscn" id="2_djqon"]
+[ext_resource type="Texture2D" uid="uid://bgtjgh3pjfglf" path="res://imported_assets/Starter Tiles Platformer/BasicGreen.png" id="3_dlkt8"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -12,3 +13,12 @@ layer_0/tile_data = PackedInt32Array(196610, 196608, 1, 262126, 0, 0, 262127, 19
 
 [node name="Player" parent="." instance=ExtResource("2_djqon")]
 position = Vector2(-1, -26)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_left = -447.0
+offset_top = -315.0
+offset_right = 109.0
+offset_bottom = -13.0
+scale = Vector2(1.48474, 1.60589)
+texture = ExtResource("3_dlkt8")
