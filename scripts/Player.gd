@@ -91,12 +91,12 @@ func _physics_process(delta):
 
 
 func _on_roll_failure_detector_body_exited(body):
-	if body is TileMap:
+	if body is TileMap and is_on_floor():
 		headCrushed = false
 
 
 func _on_roll_failure_detector_body_entered(body):
-	if body is TileMap:
+	if body is TileMap and is_on_floor():
 		headCrushed = true
 
 
