@@ -15,6 +15,8 @@ var jumped = false
 #active rolling animation
 @export var rollingAnimActiveFrame: int = 0
 
+var headCrushed = false
+
 
 func _sprite_direction_flip(direction):
 	if direction == 1:
@@ -58,6 +60,12 @@ func _physics_process(delta):
 				velocity.x = inputAxis * LOCK_SPEED
 			else:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
+	elif headCrushed:
+		if inputAxis == 0:
+			inputAxis = direction
+		velocity.x = inputAxis * ROLL_SPEED
+		rollingAnimActiveFrame = 1
+		$Marker2D/Sprite2D/AnimationPlayer.play("roll")
 	elif inputAxis:
 		
 		var anim = "walk"
@@ -78,6 +86,18 @@ func _physics_process(delta):
 			$Marker2D/Sprite2D/AnimationPlayer.play("idle")
 
 	move_and_slide()
+
+
+
+
+func _on_roll_failure_detector_body_exited(body):
+	if body is TileMap:
+		headCrushed = false
+
+
+func _on_roll_failure_detector_body_entered(body):
+	if body is TileMap:
+		headCrushed = true
 
 
 func _on_animation_player_animation_finished(anim_name):

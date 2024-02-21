@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b23x5ybrxpxmy"]
+[gd_scene load_steps=16 format=3 uid="uid://b23x5ybrxpxmy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_mnkqw"]
 [ext_resource type="Texture2D" uid="uid://cod2d1juvvt1m" path="res://imported_assets/Fire_Warrior/Fire_Warrior/Fire_Warrior-Sheet.png" id="2_no330"]
@@ -395,6 +395,9 @@ _data = {
 "walk_backwards": SubResource("Animation_e5b4o")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3syi1"]
+size = Vector2(18, 5)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_mnkqw")
 rollingAnimActiveFrame = 7
@@ -423,4 +426,12 @@ libraries = {
 }
 autoplay = "idle"
 
+[node name="RollFailureDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RollFailureDetector"]
+position = Vector2(-15, -25)
+shape = SubResource("RectangleShape2D_3syi1")
+
 [connection signal="animation_finished" from="Marker2D/Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="RollFailureDetector" to="." method="_on_roll_failure_detector_body_entered"]
+[connection signal="body_exited" from="RollFailureDetector" to="." method="_on_roll_failure_detector_body_exited"]
