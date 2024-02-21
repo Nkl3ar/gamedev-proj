@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const ROLL_SPEED = 200.0
+const ROLL_SPEED = 280.0
 const LOCK_SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
@@ -41,6 +41,7 @@ func _physics_process(delta):
 		velocity.x = inputAxis * ROLL_SPEED
 		rollingAnimActiveFrame = 1
 		$Marker2D/Sprite2D/AnimationPlayer.play("roll")
+		
 	# Handle jump.
 	elif Input.is_action_just_pressed("jump") and is_on_floor() and !rollingAnimActiveFrame:
 		velocity.y = JUMP_VELOCITY
@@ -50,7 +51,7 @@ func _physics_process(delta):
 		
 
 	if rollingAnimActiveFrame:
-		if rollingAnimActiveFrame == 7:
+		if rollingAnimActiveFrame == 6:
 			rollingAnimActiveFrame = 0
 		elif rollingAnimActiveFrame == 5:
 			if inputAxis:
@@ -77,3 +78,7 @@ func _physics_process(delta):
 			$Marker2D/Sprite2D/AnimationPlayer.play("idle")
 
 	move_and_slide()
+
+
+func _on_animation_player_animation_finished(anim_name):
+	rollingAnimActiveFrame = 0
