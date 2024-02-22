@@ -7,6 +7,9 @@ const LOCK_SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 const SLAM_VELOCITY = 800.0
 const ATTACK_VELOCITY = 100.0
+const ATTACK_1_GRAVITY = -150.0
+const ATTACK_2_GRAVITY = -200.0
+const ATTACK_3_GRAVITY = -150.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -26,7 +29,7 @@ func _ready():
 	rollingAnimActiveFrame = 0
 	$Marker2D/Sprite2D/AnimationPlayer.play("RESET")
 func _process(delta):
-	if not is_on_floor():
+	if not is_on_floor() and pause_movement:
 		fallTimer -= delta
 	else:
 		fallTimer = 0.4
@@ -52,9 +55,9 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 		
 	#needs to be a one and done
-	if Input.is_action_just_pressed("jump") and !rollingAnimActiveFrame:
+	if Input.is_action_just_pressed("jump") and !rollingAnimActiveFrame and is_on_floor():
 		#Roll
-		if locked and is_on_floor():
+		if locked:
 			rollingAnimActiveFrame = 1
 			pause_movement=true
 			$Marker2D/Sprite2D/AnimationPlayer.play("roll")
@@ -62,9 +65,8 @@ func _physics_process(delta):
 				inputAxis = direction
 			velocity.x = inputAxis * ROLL_SPEED
 			pause_idle=true
-			
 		#Jump
-		elif is_on_floor():
+		else:
 			velocity.y = JUMP_VELOCITY
 			$Marker2D/Sprite2D/AnimationPlayer.play("jump")
 			pause_idle=true
@@ -75,6 +77,9 @@ func _physics_process(delta):
 		$Marker2D/Sprite2D/AnimationPlayer.play("slam")
 		pause_movement=false
 		slammed=true
+		
+		
+		
 	if rollingAnimActiveFrame:
 		if rollingAnimActiveFrame == 6:
 			rollingAnimActiveFrame = 0
@@ -93,18 +98,24 @@ func _physics_process(delta):
 	elif Input.is_action_just_pressed("attack-1") and !pause_movement and !slammed:
 		inputAxis = direction
 		velocity.x = inputAxis * ATTACK_VELOCITY
+		if not is_on_floor():
+			velocity.y = ATTACK_1_GRAVITY
 		$Marker2D/Sprite2D/AnimationPlayer.play("attack-1")
 		pause_idle=true
 		pause_movement=true
 	elif Input.is_action_just_pressed("attack-2") and !pause_movement:
 		inputAxis = direction
 		velocity.x = inputAxis * ATTACK_VELOCITY
+		if not is_on_floor():
+			velocity.y = ATTACK_2_GRAVITY
 		$Marker2D/Sprite2D/AnimationPlayer.play("attack-2")
 		pause_idle=true
 		pause_movement=true
 	elif Input.is_action_just_pressed("attack-3") and !pause_movement:
 		inputAxis = direction
 		velocity.x = inputAxis * ATTACK_VELOCITY
+		if not is_on_floor():
+			velocity.y = ATTACK_3_GRAVITY
 		$Marker2D/Sprite2D/AnimationPlayer.play("attack-3")
 		pause_idle=true
 		pause_movement=true

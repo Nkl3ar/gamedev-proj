@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dghw6d64b3rs3"]
 
-[ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreen.tres" id="1_f7lks"]
+[ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreenDarkCastle.tres" id="1_f7lks"]
 [ext_resource type="PackedScene" uid="uid://b23x5ybrxpxmy" path="res://prefabs/Player.tscn" id="2_s2y3u"]
 
 [node name="Node2D" type="Node2D"]
