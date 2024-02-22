@@ -38,11 +38,11 @@ func _physics_process(delta):
 	
 		
 	if Input.is_action_just_pressed("jump") and locked and is_on_floor() and !rollingAnimActiveFrame:
+		rollingAnimActiveFrame = 1
+		$Marker2D/Sprite2D/AnimationPlayer.play("roll")
 		if inputAxis == 0:
 			inputAxis = direction
 		velocity.x = inputAxis * ROLL_SPEED
-		rollingAnimActiveFrame = 1
-		$Marker2D/Sprite2D/AnimationPlayer.play("roll")
 		
 	# Handle jump.
 	elif Input.is_action_just_pressed("jump") and is_on_floor() and !rollingAnimActiveFrame:
@@ -60,7 +60,7 @@ func _physics_process(delta):
 				velocity.x = inputAxis * LOCK_SPEED
 			else:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
-	elif headCrushed:
+	elif headCrushed and Input.is_action_pressed("jump") and locked:
 		if inputAxis == 0:
 			inputAxis = direction
 		velocity.x = inputAxis * ROLL_SPEED
