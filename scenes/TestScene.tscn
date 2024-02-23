@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2g7g6exmvd3v"]
+[gd_scene load_steps=6 format=3 uid="uid://d2g7g6exmvd3v"]
 
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreenDarkCastle.tres" id="1_dc8s4"]
 [ext_resource type="PackedScene" uid="uid://b23x5ybrxpxmy" path="res://prefabs/Player.tscn" id="2_djqon"]
 [ext_resource type="PackedScene" uid="uid://bvg6fpo804kgg" path="res://prefabs/Bat.tscn" id="3_gamaf"]
 [ext_resource type="PackedScene" uid="uid://tcnm5b4bwxd1" path="res://prefabs/collision_barrier.tscn" id="4_djw6s"]
+[ext_resource type="PackedScene" uid="uid://df566bycjoc6v" path="res://prefabs/GSSkeleton.tscn" id="5_astot"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -16,6 +17,9 @@ layer_0/tile_data = PackedInt32Array(196610, 196608, 1, 262126, 0, 0, 262127, 19
 position = Vector2(-1, -26)
 
 [node name="Bat" parent="." instance=ExtResource("3_gamaf")]
-position = Vector2(47, 0)
+position = Vector2(48, -54)
 
 [node name="CollisionBarrier" parent="." instance=ExtResource("4_djw6s")]
+
+[node name="GSSkeleton" parent="." instance=ExtResource("5_astot")]
+position = Vector2(227, -10)

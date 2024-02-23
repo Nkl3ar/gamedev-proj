@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name MainCharacter_Player 
 
 const SPEED = 300.0
 const ROLL_SPEED = 280.0
@@ -10,6 +11,7 @@ const ATTACK_VELOCITY = 100.0
 const ATTACK_1_GRAVITY = -150.0
 const ATTACK_2_GRAVITY = -200.0
 const ATTACK_3_GRAVITY = -150.0
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -28,6 +30,7 @@ var fallTimer = 0.4
 func _ready():
 	rollingAnimActiveFrame = 0
 	$Marker2D/Sprite2D/AnimationPlayer.play("RESET")
+	
 func _process(delta):
 	if not is_on_floor() and pause_movement:
 		fallTimer -= delta
