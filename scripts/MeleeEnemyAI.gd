@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 75.0
-const KNOCKBACK = -1000.0
+@export var SPEED = 75.0
+@export var KNOCKBACK = -1000.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var pause_movement = false
 var attacking = false
@@ -14,7 +14,9 @@ func _physics_process(delta):
 			$Marker2D/Sprite2D/AnimationPlayer.play("attack")
 			pause_movement = true
 			attacking = true
+			$Marker2D/Hurtbox.enable_damage()
 		else:
+			$Marker2D/Hurtbox.disable_damage()
 			$Marker2D/Sprite2D/AnimationPlayer.play("walk")
 			if not is_on_floor():
 				velocity.y += gravity * delta

@@ -1,15 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://d2g7g6exmvd3v"]
 
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreenDarkCastle.tres" id="1_dc8s4"]
-[ext_resource type="PackedScene" uid="uid://buk3pk6vw7t7o" path="res://prefabs/Enemies/LanceSkeleton.tscn" id="1_m5iqx"]
 [ext_resource type="PackedScene" uid="uid://b23x5ybrxpxmy" path="res://prefabs/Player.tscn" id="2_djqon"]
 [ext_resource type="PackedScene" uid="uid://bvg6fpo804kgg" path="res://prefabs/Enemies/StandardBat.tscn" id="3_gamaf"]
 [ext_resource type="PackedScene" uid="uid://tcnm5b4bwxd1" path="res://prefabs/Scene/collision_barrier.tscn" id="4_djw6s"]
+[ext_resource type="PackedScene" uid="uid://c538sveja8uy8" path="res://prefabs/Enemies/Blob.tscn" id="5_ssfmu"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="LanceSkeleton" parent="." instance=ExtResource("1_m5iqx")]
-position = Vector2(61, -10)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_dc8s4")
@@ -23,3 +20,6 @@ position = Vector2(-1, -26)
 position = Vector2(48, -54)
 
 [node name="CollisionBarrier" parent="." instance=ExtResource("4_djw6s")]
+
+[node name="Blob" parent="." instance=ExtResource("5_ssfmu")]
+position = Vector2(126, -8)
