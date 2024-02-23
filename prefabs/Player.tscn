@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b23x5ybrxpxmy"]
+[gd_scene load_steps=26 format=3 uid="uid://b23x5ybrxpxmy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_mnkqw"]
 [ext_resource type="Texture2D" uid="uid://cod2d1juvvt1m" path="res://imported_assets/Fire_Warrior/Fire_Warrior/Fire_Warrior-Sheet.png" id="2_no330"]
@@ -8,6 +8,8 @@
 [ext_resource type="Shape2D" uid="uid://b55cdjrsxx0b1" path="res://prefabs/SlamHurtbox.tres" id="5_s6yss"]
 [ext_resource type="Shape2D" uid="uid://62dnuawwv5kp" path="res://prefabs/SwordPokeHurtbox.tres" id="6_bcear"]
 [ext_resource type="Shape2D" uid="uid://dyrlci23e5ymr" path="res://prefabs/FirebreathingHurtbox.tres" id="7_o88el"]
+[ext_resource type="Script" path="res://scripts/HurtboxScript.gd" id="9_r5c3y"]
+[ext_resource type="Script" path="res://scripts/Damageable.gd" id="10_m58rt"]
 
 [sub_resource type="Animation" id="Animation_fdhl8"]
 length = 0.001
@@ -859,19 +861,25 @@ libraries = {
 autoplay = "idle"
 
 [node name="RollFailureDetector" type="Area2D" parent="Marker2D"]
-position = Vector2(15, 0)
+position = Vector2(15, 3.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/RollFailureDetector"]
 position = Vector2(-15, -25)
 shape = SubResource("RectangleShape2D_3syi1")
 
 [node name="Hurtbox" type="Area2D" parent="Marker2D"]
+script = ExtResource("9_r5c3y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Hurtbox"]
 position = Vector2(30, -5)
 shape = ExtResource("4_lrdg8")
 disabled = true
 
+[node name="Damageable" type="Node" parent="."]
+script = ExtResource("10_m58rt")
+health = 5
+
 [connection signal="animation_finished" from="Marker2D/Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Marker2D/RollFailureDetector" to="." method="_on_roll_failure_detector_body_entered"]
 [connection signal="body_exited" from="Marker2D/RollFailureDetector" to="." method="_on_roll_failure_detector_body_exited"]
+[connection signal="body_entered" from="Marker2D/Hurtbox" to="Marker2D/Hurtbox" method="_on_body_entered"]

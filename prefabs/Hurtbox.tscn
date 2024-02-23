@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bplnntnhhhuft"]
+
+[ext_resource type="Script" path="res://scripts/HurtboxScript.gd" id="1_3cyse"]
+[ext_resource type="Shape2D" uid="uid://dek214htucivd" path="res://prefabs/SwordHurtbox.tres" id="2_as3xx"]
+
+[node name="Hurtbox" type="Area2D"]
+script = ExtResource("1_3cyse")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(30, -5)
+shape = ExtResource("2_as3xx")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

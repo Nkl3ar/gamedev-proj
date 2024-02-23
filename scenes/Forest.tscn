@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dghw6d64b3rs3"]
+[gd_scene load_steps=5 format=3 uid="uid://dghw6d64b3rs3"]
 
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreenDarkCastle.tres" id="1_f7lks"]
 [ext_resource type="PackedScene" uid="uid://b23x5ybrxpxmy" path="res://prefabs/Player.tscn" id="2_s2y3u"]
+[ext_resource type="PackedScene" uid="uid://bvg6fpo804kgg" path="res://prefabs/Bat.tscn" id="3_4nl8s"]
+[ext_resource type="PackedScene" uid="uid://tcnm5b4bwxd1" path="res://prefabs/collision_barrier.tscn" id="4_aus28"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -20,11 +22,17 @@ position = Vector2(2352, -78)
 [node name="Tutorial Bat" type="Marker2D" parent="."]
 position = Vector2(3339, 37)
 
+[node name="Bat" parent="Tutorial Bat" instance=ExtResource("3_4nl8s")]
+
 [node name="Bat" type="Marker2D" parent="."]
 position = Vector2(4099, 9)
 
+[node name="Bat" parent="Bat" instance=ExtResource("3_4nl8s")]
+
 [node name="Bat2" type="Marker2D" parent="."]
 position = Vector2(4352, 138)
+
+[node name="Bat" parent="Bat2" instance=ExtResource("3_4nl8s")]
 
 [node name="GS Skeleton" type="Marker2D" parent="."]
 position = Vector2(4986, 279)
@@ -47,8 +55,12 @@ position = Vector2(6916, 1013)
 [node name="Bat3" type="Marker2D" parent="."]
 position = Vector2(7449, 1024)
 
+[node name="Bat" parent="Bat3" instance=ExtResource("3_4nl8s")]
+
 [node name="Bat4" type="Marker2D" parent="."]
 position = Vector2(7803, 976)
+
+[node name="Bat" parent="Bat4" instance=ExtResource("3_4nl8s")]
 
 [node name="Bow Skeleton3" type="Marker2D" parent="."]
 position = Vector2(7871, 1007)
@@ -65,8 +77,12 @@ position = Vector2(8756, 1151)
 [node name="Bat5" type="Marker2D" parent="."]
 position = Vector2(8534, 1106)
 
+[node name="Bat" parent="Bat5" instance=ExtResource("3_4nl8s")]
+
 [node name="Bat6" type="Marker2D" parent="."]
 position = Vector2(8677, 1102)
+
+[node name="Bat" parent="Bat6" instance=ExtResource("3_4nl8s")]
 
 [node name="GS Skeleton8" type="Marker2D" parent="."]
 position = Vector2(9225, 1258)
@@ -77,6 +93,8 @@ position = Vector2(9330, 1259)
 [node name="Bat7" type="Marker2D" parent="."]
 position = Vector2(9523, 1228)
 
+[node name="Bat" parent="Bat7" instance=ExtResource("3_4nl8s")]
+
 [node name="GateAndMiniBossSpawnTrigger" type="Marker2D" parent="."]
 position = Vector2(9954.5, 1369)
 
@@ -85,3 +103,12 @@ position = Vector2(10853, 1369)
 
 [node name="MiniBossSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(10407.8, 1374.56)
+
+[node name="CollisionBarrier" parent="." instance=ExtResource("4_aus28")]
+position = Vector2(4174, 24)
+
+[node name="CollisionBarrier2" parent="." instance=ExtResource("4_aus28")]
+position = Vector2(4682, 143)
+
+[node name="CollisionBarrier3" parent="." instance=ExtResource("4_aus28")]
+position = Vector2(7972, 1002)
