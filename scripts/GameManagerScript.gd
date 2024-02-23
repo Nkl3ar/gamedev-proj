@@ -17,3 +17,5 @@ func _input(event):
 			get_tree().quit()
 		else:
 			get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
+			
+
