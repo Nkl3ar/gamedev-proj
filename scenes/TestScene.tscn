@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b23x5ybrxpxmy" path="res://prefabs/Player.tscn" id="2_djqon"]
 [ext_resource type="PackedScene" uid="uid://bvg6fpo804kgg" path="res://prefabs/Enemies/StandardBat.tscn" id="3_gamaf"]
 [ext_resource type="PackedScene" uid="uid://tcnm5b4bwxd1" path="res://prefabs/Scene/collision_barrier.tscn" id="4_djw6s"]
-[ext_resource type="PackedScene" uid="uid://df566bycjoc6v" path="res://prefabs/Enemies/GSSkeleton.tscn" id="5_astot"]
+[ext_resource type="PackedScene" uid="uid://dskkvk82laarx" path="res://prefabs/Enemies/SSHSkeleton.tscn" id="4_q28n1"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -19,7 +19,7 @@ position = Vector2(-1, -26)
 [node name="Bat" parent="." instance=ExtResource("3_gamaf")]
 position = Vector2(48, -54)
 
-[node name="CollisionBarrier" parent="." instance=ExtResource("4_djw6s")]
+[node name="SSHSkeleton" parent="." instance=ExtResource("4_q28n1")]
+position = Vector2(105, -8)
 
-[node name="GSSkeleton" parent="." instance=ExtResource("5_astot")]
-position = Vector2(227, -10)
+[node name="CollisionBarrier" parent="." instance=ExtResource("4_djw6s")]
