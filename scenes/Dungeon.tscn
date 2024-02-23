@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0m6wxokbtji1"]
 
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreenDarkCastle.tres" id="1_q25np"]
-[ext_resource type="TileSet" uid="uid://cicv6hqxexf08" path="res://tilesets/BasicGreenDarkCastleBG.tres" id="1_ys3sf"]
+[ext_resource type="TileSet" uid="uid://ca1mgpg7pei1o" path="res://tilesets/BasicGreenDarkCastleBG.tres" id="1_ys3sf"]
 [ext_resource type="PackedScene" uid="uid://b23x5ybrxpxmy" path="res://prefabs/Player.tscn" id="2_8cjbd"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="Background" type="TileMap" parent="."]
 self_modulate = Color(0.560784, 0.560784, 0.560784, 1)

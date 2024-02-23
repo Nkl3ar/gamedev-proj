@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://be7b2ad5n00dg"]
 
 [ext_resource type="Texture2D" uid="uid://51tgwhd0gqcf" path="res://imported_assets/Starter Tiles Platformer/FireSet.png" id="1_hlsqa"]
-[ext_resource type="TileSet" uid="uid://b67hda5ukaffq" path="res://tilesets/HellBG.tres" id="1_qf53c"]
+[ext_resource type="TileSet" uid="uid://bff4dfvseoisw" path="res://tilesets/HellBG.tres" id="1_qf53c"]
 [ext_resource type="PackedScene" uid="uid://b23x5ybrxpxmy" path="res://prefabs/Player.tscn" id="2_3l2sx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fk4gx"]
@@ -111,7 +111,7 @@ texture = ExtResource("1_hlsqa")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_fk4gx")
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="Background" type="TileMap" parent="."]
 self_modulate = Color(0.560784, 0.560784, 0.560784, 1)

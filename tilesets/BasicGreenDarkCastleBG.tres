@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cicv6hqxexf08"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://ca1mgpg7pei1o"]
 
 [ext_resource type="Texture2D" uid="uid://bgtjgh3pjfglf" path="res://imported_assets/Starter Tiles Platformer/BasicGreen.png" id="1_ahcqn"]
 [ext_resource type="Texture2D" uid="uid://dtoo8ff2r4n1" path="res://imported_assets/Starter Tiles Platformer/DarkCastle.png" id="2_c5krx"]
