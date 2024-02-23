@@ -2,6 +2,10 @@ extends CharacterBody2D
 
 const SPEED = 50.0
 
+
+func _ready():
+	$Marker2D.scale.x*=-1
+
 func _physics_process(delta):
 	$Marker2D/Sprite2D/AnimationPlayer.play("fly")
 	var direction = $Marker2D.scale.x

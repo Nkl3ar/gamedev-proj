@@ -7,6 +7,9 @@ var pause_movement = false
 var attacking = false
 var inRange = false
 
+func _ready():
+	$Marker2D.scale.x*=-1
+
 func _physics_process(delta):
 	if not pause_movement:
 		if inRange:
