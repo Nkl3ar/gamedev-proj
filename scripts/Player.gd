@@ -11,6 +11,7 @@ const ATTACK_VELOCITY = 100.0
 const ATTACK_1_GRAVITY = -150.0
 const ATTACK_2_GRAVITY = -200.0
 const ATTACK_3_GRAVITY = -150.0
+const KNOCKBACK = -1000.0
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -23,6 +24,9 @@ var slammed=false
 
 #active rolling animation
 @export var rollingAnimActiveFrame: int = 0
+
+#charge
+@export var charge: int = 0
 
 var headCrushed = false
 var fallTimer = 0.4
@@ -46,7 +50,7 @@ func _sprite_direction_flip(direction):
 	else:
 		$Marker2D.scale.x = -1
 
-func _physics_process(delta):
+func _physics_process(delta): #in physics because a ton affects physics
 	var direction = $Marker2D.scale.x
 	var inputAxis = Input.get_axis("move-left", "move-right")
 	var locked = Input.is_action_pressed("lock")
@@ -159,3 +163,12 @@ func _on_animation_player_animation_finished(anim_name):
 	rollingAnimActiveFrame = 0
 	pause_idle=false
 	pause_movement=false
+
+
+func _on_damageable_hit_for_damage():
+	#pause_movement=true
+	$Marker2D/Sprite2D/AnimationPlayer.play("hit")
+	var direction = $Marker2D.scale.x
+	velocity.x = direction * KNOCKBACK
+	velocity.y = -5
+	move_and_slide()

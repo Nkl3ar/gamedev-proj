@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctrryoaa2htlq"]
+[gd_scene load_steps=5 format=3 uid="uid://be7b2ad5n00dg"]
 
 [ext_resource type="Texture2D" uid="uid://51tgwhd0gqcf" path="res://imported_assets/Starter Tiles Platformer/FireSet.png" id="1_hlsqa"]
-[ext_resource type="PackedScene" uid="uid://b23x5ybrxpxmy" path="res://scenes/Player.tscn" id="2_3l2sx"]
+[ext_resource type="PackedScene" uid="uid://b23x5ybrxpxmy" path="res://prefabs/Player.tscn" id="2_3l2sx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fk4gx"]
 texture = ExtResource("1_hlsqa")
