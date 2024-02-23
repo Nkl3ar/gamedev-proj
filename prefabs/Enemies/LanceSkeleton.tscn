@@ -1,0 +1,259 @@
+[gd_scene load_steps=30 format=3 uid="uid://buk3pk6vw7t7o"]
+
+[ext_resource type="Script" path="res://scripts/MeleeEnemyAI.gd" id="1_qt8xq"]
+[ext_resource type="Script" path="res://scripts/Damageable.gd" id="2_hsc1u"]
+[ext_resource type="Texture2D" uid="uid://df8qgrap701x0" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/walk-1.png" id="3_fab5v"]
+[ext_resource type="Shape2D" uid="uid://cgu8nqp4wpa2e" path="res://prefabs/Collisions/SkeletonHurtbox.tres" id="4_s371d"]
+[ext_resource type="Texture2D" uid="uid://bgwk1f023t7ra" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/attack-A1.png" id="5_xnhjv"]
+[ext_resource type="Texture2D" uid="uid://b10fad1b1djxt" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/attack-A2.png" id="6_q7uob"]
+[ext_resource type="Texture2D" uid="uid://b0eyg1xmtodv5" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/attack-A3.png" id="7_xn46w"]
+[ext_resource type="Texture2D" uid="uid://by8c453fdpj0x" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/attack-A4.png" id="8_hk7fe"]
+[ext_resource type="Texture2D" uid="uid://bj66xt4uf7vn6" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/attack-A5.png" id="9_cbr1d"]
+[ext_resource type="Texture2D" uid="uid://8m3ol2efjttm" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/attack-A6.png" id="10_okve3"]
+[ext_resource type="Texture2D" uid="uid://j3dvk1vjq5g5" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/idle-1.png" id="11_5l8ou"]
+[ext_resource type="Texture2D" uid="uid://c2x1k580lwu3p" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/idle-2.png" id="12_elpuk"]
+[ext_resource type="Texture2D" uid="uid://clv3mylm5xiu" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/hit-1.png" id="14_qxgxq"]
+[ext_resource type="Texture2D" uid="uid://ptdfms4eopka" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/hit-2.png" id="15_pwy86"]
+[ext_resource type="Texture2D" uid="uid://dku1kskikqea4" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/hit-3.png" id="16_t7ego"]
+[ext_resource type="Texture2D" uid="uid://bvk5uwf47qtlx" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/walk-2.png" id="17_miww2"]
+[ext_resource type="Shape2D" uid="uid://1pskohjqkkj6" path="res://prefabs/Collisions/SkeletonSwordAttack.tres" id="17_v1v71"]
+[ext_resource type="Texture2D" uid="uid://cs1xyfrbn6rpu" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/walk-3.png" id="18_xwy2l"]
+[ext_resource type="Texture2D" uid="uid://d0ftv2xxntaqt" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/walk-4.png" id="19_tw4gv"]
+[ext_resource type="Texture2D" uid="uid://cbhemr88novu1" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/walk-5.png" id="20_bynj3"]
+[ext_resource type="Texture2D" uid="uid://bpbetkkpvxle6" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/walk-6.png" id="21_jibed"]
+[ext_resource type="Script" path="res://scripts/SkeletonPlayerDetect.gd" id="26_ystww"]
+[ext_resource type="Script" path="res://scripts/HurtboxScript.gd" id="27_2galv"]
+[ext_resource type="Shape2D" uid="uid://ct862kx4racx0" path="res://prefabs/Collisions/SkeletonCollision.tres" id="28_h5i04"]
+
+[sub_resource type="Animation" id="Animation_vu8m2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fab5v")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Hurtbox/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Hurtbox/CollisionShape2D:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_s371d")]
+}
+
+[sub_resource type="Animation" id="Animation_akhv3"]
+resource_name = "attack"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05),
+"update": 1,
+"values": [ExtResource("5_xnhjv"), ExtResource("6_q7uob"), ExtResource("7_xn46w"), ExtResource("8_hk7fe"), ExtResource("9_cbr1d"), ExtResource("10_okve3"), ExtResource("11_5l8ou"), ExtResource("12_elpuk"), ExtResource("11_5l8ou"), ExtResource("12_elpuk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Hurtbox/CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.8, 0.9),
+"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05, 1e-05, 1e-05),
+"update": 1,
+"values": [ExtResource("4_s371d"), ExtResource("4_s371d"), ExtResource("17_v1v71"), ExtResource("17_v1v71"), ExtResource("4_s371d")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Hurtbox/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.8, 0.9),
+"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05, 1e-05, 1e-05),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(45, 0), Vector2(45, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Hurtbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_7a61y"]
+resource_name = "hit"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("14_qxgxq"), ExtResource("15_pwy86"), ExtResource("16_t7ego")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Hurtbox/CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_s371d")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Hurtbox/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ehtkj"]
+resource_name = "walk"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_fab5v"), ExtResource("17_miww2"), ExtResource("18_xwy2l"), ExtResource("19_tw4gv"), ExtResource("20_bynj3"), ExtResource("21_jibed")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Hurtbox/CollisionShape2D:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_s371d")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Hurtbox/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_af2cm"]
+_data = {
+"RESET": SubResource("Animation_vu8m2"),
+"attack": SubResource("Animation_akhv3"),
+"hit": SubResource("Animation_7a61y"),
+"walk": SubResource("Animation_ehtkj")
+}
+
+[node name="LanceSkeleton" type="CharacterBody2D"]
+collision_layer = 11
+collision_mask = 9
+script = ExtResource("1_qt8xq")
+
+[node name="Damageable" type="Node" parent="."]
+script = ExtResource("2_hsc1u")
+health = 50
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+position = Vector2(18, 0)
+texture = ExtResource("3_fab5v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Marker2D/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_af2cm")
+}
+
+[node name="PlayerDetect" type="Area2D" parent="Marker2D"]
+position = Vector2(0, 17)
+collision_layer = 8
+collision_mask = 11
+script = ExtResource("26_ystww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/PlayerDetect"]
+position = Vector2(39, 0)
+shape = ExtResource("17_v1v71")
+
+[node name="Hurtbox" type="Area2D" parent="Marker2D"]
+position = Vector2(0, 17)
+collision_layer = 8
+collision_mask = 11
+script = ExtResource("27_2galv")
+damage = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Hurtbox"]
+shape = ExtResource("4_s371d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 18)
+shape = ExtResource("28_h5i04")
+
+[connection signal="hit_for_damage" from="Damageable" to="." method="_on_damageable_hit_for_damage"]
+[connection signal="animation_finished" from="Marker2D/Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="Marker2D/PlayerDetect" to="Marker2D/PlayerDetect" method="_on_body_entered"]
+[connection signal="body_exited" from="Marker2D/PlayerDetect" to="Marker2D/PlayerDetect" method="_on_body_exited"]
+[connection signal="in_range" from="Marker2D/PlayerDetect" to="." method="_on_player_detect_in_range"]
+[connection signal="out_range" from="Marker2D/PlayerDetect" to="." method="_on_player_detect_out_range"]
+[connection signal="body_entered" from="Marker2D/Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_entered" from="Marker2D/Hurtbox" to="Marker2D/Hurtbox" method="_on_body_entered"]
