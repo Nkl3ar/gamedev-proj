@@ -12,7 +12,7 @@ extends Node
 
 	
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("pause"):
 		if get_tree().get_current_scene().name == "res://scenes/MainMenu.gd":
 			get_tree().quit()
 		else:
