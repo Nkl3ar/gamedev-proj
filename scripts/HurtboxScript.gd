@@ -14,7 +14,7 @@ func _on_body_entered(body):
 		if detectPlayer:
 			if body is MainCharacter_Player:
 				for child in body.get_children():
-					if child is Damageable:
+					if child is PDamageable:
 						child.hit(damage)
 		else:
 			if !(body is MainCharacter_Player):

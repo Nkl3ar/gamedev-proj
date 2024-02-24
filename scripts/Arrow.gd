@@ -23,7 +23,7 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	if body is MainCharacter_Player:
 				for child in body.get_children():
-					if child is Damageable:
+					if child is PDamageable:
 						child.hit(damage)
 	if !(body is Arrow):
 		queue_free()

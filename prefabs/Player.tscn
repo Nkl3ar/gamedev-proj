@@ -9,7 +9,7 @@
 [ext_resource type="Shape2D" uid="uid://62dnuawwv5kp" path="res://prefabs/Collisions/SwordPokeHurtbox.tres" id="6_bcear"]
 [ext_resource type="Shape2D" uid="uid://dyrlci23e5ymr" path="res://prefabs/Collisions/FirebreathingHurtbox.tres" id="7_o88el"]
 [ext_resource type="Script" path="res://scripts/HurtboxScript.gd" id="9_r5c3y"]
-[ext_resource type="Script" path="res://scripts/Damageable.gd" id="10_m58rt"]
+[ext_resource type="Script" path="res://scripts/DamageablePlayer.gd" id="10_qsn7n"]
 
 [sub_resource type="Animation" id="Animation_fdhl8"]
 length = 0.001
@@ -929,12 +929,12 @@ position = Vector2(0, 22.5)
 shape = ExtResource("5_s6yss")
 disabled = true
 
-[node name="Damageable" type="Node" parent="."]
-script = ExtResource("10_m58rt")
+[node name="PDamageable" type="Node" parent="."]
+script = ExtResource("10_qsn7n")
 health = 5
 
 [connection signal="animation_finished" from="Marker2D/Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Marker2D/RollFailureDetector" to="." method="_on_roll_failure_detector_body_entered"]
 [connection signal="body_exited" from="Marker2D/RollFailureDetector" to="." method="_on_roll_failure_detector_body_exited"]
 [connection signal="body_entered" from="Marker2D/Hurtbox" to="Marker2D/Hurtbox" method="_on_body_entered"]
-[connection signal="hit_for_damage" from="Damageable" to="." method="_on_damageable_hit_for_damage"]
+[connection signal="hit_for_damage" from="PDamageable" to="." method="_on_p_damageable_hit_for_damage"]

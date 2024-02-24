@@ -34,7 +34,7 @@ var chargeInUse = false
 var headCrushed = false
 var fallTimer = 0.4
 
-
+		
 func _ready():
 	rollingAnimActiveFrame = 0
 	$Marker2D/Sprite2D/AnimationPlayer.play("RESET")
@@ -180,7 +180,9 @@ func _on_animation_player_animation_finished(anim_name):
 	chargeInUse=false
 
 
-func _on_damageable_hit_for_damage():
+
+
+func _on_p_damageable_hit_for_damage():
 	pause_idle=true
 	$Marker2D/Sprite2D/AnimationPlayer.stop()
 	$Marker2D/Sprite2D/AnimationPlayer.play("hit")
