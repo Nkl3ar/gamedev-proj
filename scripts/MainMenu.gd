@@ -4,6 +4,8 @@ var music_index: int
 func _ready():
 	sfx_index = AudioServer.get_bus_index("Sfx")
 	music_index = AudioServer.get_bus_index("Music")
+	$MarginContainer/VBoxContainer/SFX.value = GameManagerScript.sfxVol
+	$MarginContainer/VBoxContainer/Music.value = GameManagerScript.musicVol
 	
 
 func _on_play_pressed():
@@ -19,8 +21,10 @@ func _on_exit_pressed():
 
 
 func _on_sfx_value_changed(value):
+	GameManagerScript.sfxVol = value
 	AudioServer.set_bus_volume_db(sfx_index, linear_to_db(value))
 
 
 func _on_music_value_changed(value):
+	GameManagerScript.musicVol = value
 	AudioServer.set_bus_volume_db(music_index, linear_to_db(value))
