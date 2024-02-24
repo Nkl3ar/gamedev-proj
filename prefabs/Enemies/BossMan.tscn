@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://da3f8h483neo6"]
+[gd_scene load_steps=37 format=3 uid="uid://da3f8h483neo6"]
 
 [ext_resource type="Script" path="res://scripts/MeleeEnemyAI.gd" id="1_kdgms"]
 [ext_resource type="Script" path="res://scripts/Damageable.gd" id="2_lchco"]
@@ -29,6 +29,7 @@
 [ext_resource type="Shape2D" uid="uid://ct862kx4racx0" path="res://prefabs/Collisions/SkeletonCollision.tres" id="24_sg8tv"]
 [ext_resource type="Texture2D" uid="uid://cjgvvgilxhaap" path="res://imported_assets/HeroandOpponents_v1/Player/walk-with-weapon-11.png" id="25_ro544"]
 [ext_resource type="AudioStream" uid="uid://djwkuefrieac2" path="res://sfx/SpearAttack.wav" id="28_tjjja"]
+[ext_resource type="AudioStream" uid="uid://bxs1ixwca3oc6" path="res://sfx/berserk-clang.mp3" id="29_qhn26"]
 
 [sub_resource type="Animation" id="Animation_vu8m2"]
 length = 0.001
@@ -261,7 +262,7 @@ stream = ExtResource("28_tjjja")
 bus = &"Sfx"
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="Marker2D"]
-stream = ExtResource("28_tjjja")
+stream = ExtResource("29_qhn26")
 bus = &"Sfx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
