@@ -25,6 +25,6 @@ func _on_area_2d_body_entered(body):
 				for child in body.get_children():
 					if child is PDamageable:
 						child.hit(damage)
-	if !(body is Arrow):
+	if !(body == self):
 		queue_free()
 	

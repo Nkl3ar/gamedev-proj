@@ -4,7 +4,7 @@ class_name PDamageable
 @export var health = 1
 
 var invul=false
-var invul_period=5.0
+var invul_period=2.5
 
 func apply_invul(wanted_invul_period):
 	invul_period=wanted_invul_period
@@ -14,7 +14,7 @@ func _process(delta):
 	if invul:
 		invul_period-=delta
 		if invul_period<0:
-			invul_period=5.0
+			invul_period=2.5
 			invul=false
 			
 signal hit_for_damage
