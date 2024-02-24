@@ -38,7 +38,8 @@ func get_time():
 	if (FileAccess.file_exists(SAVE_FILE)):
 		timeArray = file.get_var()
 		timeArray.sort_custom(sort_ascending)
-	file.close()
+		file.close()
+	
 
 func level_restart():
 	get_tree().reload_current_scene()
