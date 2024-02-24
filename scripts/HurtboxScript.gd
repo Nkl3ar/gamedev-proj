@@ -17,6 +17,8 @@ func _on_body_entered(body):
 					if child is PDamageable:
 						child.hit(damage)
 		else:
+			if (body is Arrow):
+				body.queue_free()
 			if !(body is MainCharacter_Player):
 				for child in body.get_children():
 					if child is Damageable:
