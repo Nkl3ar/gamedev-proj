@@ -218,7 +218,7 @@ collision_layer = 11
 collision_mask = 9
 script = ExtResource("1_kdgms")
 SPEED = 200.0
-ATTACK_VELOCITY = 250.0
+ATTACK_VELOCITY = 750.0
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("2_lchco")
