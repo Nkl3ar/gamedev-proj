@@ -1,35 +1,43 @@
 extends Node
 class_name GameManager
 
-const SAVE_FILE = "user://time_table.sav"
+const SAVE_FILE = "user://hi_time_table.sav"
 
 var musicVol = 100
 var sfxVol = 100
 var time: float = 0.0
 var beatTheGame = false
-
-var timeArray = [0.0,0.0,0.0]
+var timeArray = []
 
 func sort_ascending(a, b):
-	if a == 0.0:
+	if b == 0.0:
 		return true
 	if a < b:
 		return true
 	return false
 
 func save_time():
-	var file = FileAccess.open(SAVE_FILE, FileAccess.READ_WRITE)
-	if (FileAccess.file_exists(file)):
-		timeArray[0] = file.get_float()
-		timeArray[1] = file.get_float()
-		timeArray[2] = file.get_float()
-	timeArray.append(time)
-	timeArray.sort_custom(sort_ascending)
-	
-	file.store_float(timeArray[0])
-	file.store_float(timeArray[1])
-	file.store_float(timeArray[2])
-	
+	if beatTheGame:
+		var file = FileAccess.open(SAVE_FILE, FileAccess.READ_WRITE)
+		if (FileAccess.file_exists(SAVE_FILE)):
+			timeArray = file.get_var()
+			timeArray.append(time)
+		else:
+			file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
+			timeArray = [time]
+		
+		timeArray.sort_custom(sort_ascending)
+		file.store_var(timeArray)
+		
+		file.close()
+	beatTheGame = false
+	print(timeArray)
+
+func get_time():
+	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
+	if (FileAccess.file_exists(SAVE_FILE)):
+		timeArray = file.get_var()
+		timeArray.sort_custom(sort_ascending)
 	file.close()
 
 func level_restart():

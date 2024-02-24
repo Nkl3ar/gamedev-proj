@@ -102,7 +102,7 @@ shape = SubResource("RectangleShape2D_yrmir")
 z_index = -1
 position = Vector2(-3, 14)
 scale = Vector2(0.055, 0.055)
-texture = ExtResource("42_3y3gl")
+texture = ExtResource("65_jxw4g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
