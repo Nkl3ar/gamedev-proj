@@ -14,7 +14,7 @@ const ATTACK_3_GRAVITY = -150.0
 const KNOCKBACK = -1000.0
 const ATTACK_1_DAMAGE = 15
 const ATTACK_2_DAMAGE = 12
-const ATTACK_3_DAMAGE = 4
+const ATTACK_3_DAMAGE = 10
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
