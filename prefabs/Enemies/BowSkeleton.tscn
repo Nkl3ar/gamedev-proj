@@ -159,7 +159,7 @@ collision_mask = 11
 script = ExtResource("26_3xr0i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectL"]
-position = Vector2(-111, -17)
+position = Vector2(-211, -17)
 shape = ExtResource("29_te6mn")
 
 [node name="PlayerDetectR" type="Area2D" parent="."]
@@ -168,7 +168,7 @@ collision_mask = 11
 script = ExtResource("26_3xr0i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectR"]
-position = Vector2(111, -17)
+position = Vector2(211, -17)
 shape = ExtResource("29_te6mn")
 
 [connection signal="hit_for_damage" from="Damageable" to="." method="_on_damageable_hit_for_damage"]

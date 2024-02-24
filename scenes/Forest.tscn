@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dghw6d64b3rs3"]
+[gd_scene load_steps=18 format=3 uid="uid://dghw6d64b3rs3"]
 
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreenDarkCastle.tres" id="1_f7lks"]
 [ext_resource type="Script" path="res://scripts/LevelInit.gd" id="1_gxvfa"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dmki15e3es3q" path="res://prefabs/Scene/level_transition.tscn" id="7_pgow6"]
 [ext_resource type="PackedScene" uid="uid://b0m6wxokbtji1" path="res://scenes/Dungeon.tscn" id="8_k8b08"]
 [ext_resource type="PackedScene" uid="uid://cw4dak7x6jjm7" path="res://prefabs/Scene/death_barrier.tscn" id="10_d7a5w"]
+[ext_resource type="AudioStream" uid="uid://c8o3rspx5rax2" path="res://sfx/FallingRock.mp3" id="12_xlwcm"]
 [ext_resource type="Texture2D" uid="uid://dfravi1kivm8n" path="res://imported_assets/613a60ec0bf1df1.png" id="13_vxh7g"]
 [ext_resource type="AudioStream" uid="uid://c01nu7hmp1eiw" path="res://music/Forest.mp3" id="14_nq48l"]
 
@@ -179,6 +180,10 @@ position = Vector2(9966, 1371)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossSpawner/BossTrigger"]
 position = Vector2(-10, -32)
 shape = SubResource("RectangleShape2D_rupbj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BossSpawner"]
+stream = ExtResource("12_xlwcm")
+bus = &"Sfx"
 
 [node name="DeathBarriers" type="Node2D" parent="."]
 
