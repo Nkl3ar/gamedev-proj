@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://be7b2ad5n00dg"]
+[gd_scene load_steps=24 format=3 uid="uid://be7b2ad5n00dg"]
 
 [ext_resource type="Script" path="res://scripts/LevelInit.gd" id="1_dpeht"]
 [ext_resource type="Texture2D" uid="uid://51tgwhd0gqcf" path="res://imported_assets/Starter Tiles Platformer/FireSet.png" id="1_hlsqa"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://b7baudsonumt3" path="res://music/Hell.mp3" id="13_a3ilw"]
 [ext_resource type="AudioStream" uid="uid://cys3ik4l4m7he" path="res://sfx/teleport.wav" id="14_81kib"]
 [ext_resource type="Texture2D" uid="uid://dgoe5p1fvjdfa" path="res://imported_assets/fqLm3grCopy.png" id="15_qxy3v"]
+[ext_resource type="PackedScene" uid="uid://dy0fppdi8ahyr" path="res://prefabs/Enemies/FireBat.tscn" id="18_dim0r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fk4gx"]
 texture = ExtResource("1_hlsqa")
@@ -423,6 +424,39 @@ bus = &"Sfx"
 stream = ExtResource("13_a3ilw")
 volume_db = -20.0
 bus = &"Music"
+
+[node name="Bat" parent="." instance=ExtResource("18_dim0r")]
+position = Vector2(4599, 527)
+
+[node name="Bat2" parent="." instance=ExtResource("18_dim0r")]
+position = Vector2(4940, 518)
+
+[node name="Bat3" parent="." instance=ExtResource("18_dim0r")]
+position = Vector2(5178, 521)
+
+[node name="Bat4" parent="." instance=ExtResource("18_dim0r")]
+position = Vector2(3868, 521)
+
+[node name="Bat5" parent="." instance=ExtResource("18_dim0r")]
+position = Vector2(3480, 533)
+
+[node name="Bat6" parent="." instance=ExtResource("18_dim0r")]
+position = Vector2(4273, 515)
+
+[node name="Bat7" parent="." instance=ExtResource("18_dim0r")]
+position = Vector2(4075, 431)
+
+[node name="Bat8" parent="." instance=ExtResource("18_dim0r")]
+position = Vector2(4456, 434)
+
+[node name="Bat9" parent="." instance=ExtResource("18_dim0r")]
+position = Vector2(6132, 357)
+
+[node name="Bat10" parent="." instance=ExtResource("18_dim0r")]
+position = Vector2(6672, 310)
+
+[node name="Bat11" parent="." instance=ExtResource("18_dim0r")]
+position = Vector2(5878, 359)
 
 [connection signal="body_entered" from="BrickBreakerTrigger/Area2D" to="BrickBreakerTrigger" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="BossSpawner/BossTrigger" to="BossSpawner" method="_on_boss_trigger_body_entered"]
