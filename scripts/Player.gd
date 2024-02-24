@@ -181,7 +181,8 @@ func _on_animation_player_animation_finished(anim_name):
 
 
 func _on_damageable_hit_for_damage():
-	#pause_movement=true
+	pause_idle=true
+	$Marker2D/Sprite2D/AnimationPlayer.stop()
 	$Marker2D/Sprite2D/AnimationPlayer.play("hit")
 	var direction = $Marker2D.scale.x
 	velocity.x = direction * KNOCKBACK

@@ -15,4 +15,4 @@ layer_0/tile_data = PackedInt32Array(196610, 196608, 1, 262126, 0, 0, 262127, 19
 position = Vector2(-1, -26)
 
 [node name="BowSkeleton" parent="." instance=ExtResource("3_a5b75")]
-position = Vector2(106, -5)
+position = Vector2(134, -9)

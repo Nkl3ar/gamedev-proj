@@ -9,6 +9,7 @@ var inRange = false
 
 var in_left = false
 var in_right = false
+var arrow = preload("res://prefabs/Other/arrow.tscn")
 
 func _ready():
 	$Marker2D.scale.x*=-1
@@ -43,7 +44,13 @@ func _on_hurtbox_body_entered(body):
 	pass
 
 func _call_fire():
-	pass
+	var arrow_instance = arrow.instantiate()
+	arrow_instance.Marker2dRotation = $Marker2D.scale.x
+	if $Marker2D.scale.x == -1:
+		arrow_instance.position = $Marker2D/MarkerFire.position
+	else:
+		arrow_instance.position = $Marker2D/MarkerFire2.position
+	add_child(arrow_instance)
 
 func _attack():
 	if in_left:
@@ -53,6 +60,7 @@ func _attack():
 	$Marker2D/Sprite2D/AnimationPlayer.play("attack")
 	pause_movement=true
 	attacking = true
+	
 
 func _on_player_detect_l_in_range():
 	inRange = true
