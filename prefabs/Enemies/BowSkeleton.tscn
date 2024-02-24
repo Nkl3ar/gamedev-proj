@@ -111,7 +111,7 @@ script = ExtResource("1_dqnx8")
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("2_2sr1d")
-health = 40
+health = 30
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -17)
