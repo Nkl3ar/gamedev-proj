@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dghw6d64b3rs3"]
+[gd_scene load_steps=11 format=3 uid="uid://dghw6d64b3rs3"]
 
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreenDarkCastle.tres" id="1_f7lks"]
 [ext_resource type="TileSet" uid="uid://ca1mgpg7pei1o" path="res://tilesets/BasicGreenDarkCastleBG.tres" id="1_vin28"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://tcnm5b4bwxd1" path="res://prefabs/Scene/collision_barrier.tscn" id="4_aus28"]
 [ext_resource type="PackedScene" uid="uid://buk3pk6vw7t7o" path="res://prefabs/Enemies/LanceSkeleton.tscn" id="5_ixvi5"]
 [ext_resource type="Script" path="res://scripts/BossTrigger.gd" id="6_5vxej"]
+[ext_resource type="PackedScene" uid="uid://dt8p6ufyhir4o" path="res://prefabs/Enemies/BowSkeleton.tscn" id="6_tchit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rupbj"]
 size = Vector2(20, 150)
@@ -73,8 +74,12 @@ position = Vector2(1, -27)
 [node name="Bow Skeleton" type="Marker2D" parent="."]
 position = Vector2(6363.74, 723.543)
 
+[node name="BowSkeleton" parent="Bow Skeleton" instance=ExtResource("6_tchit")]
+
 [node name="Bow Skeleton2" type="Marker2D" parent="."]
-position = Vector2(7059, 1013)
+position = Vector2(7059, 995)
+
+[node name="BowSkeleton" parent="Bow Skeleton2" instance=ExtResource("6_tchit")]
 
 [node name="GS Skeleton4" type="Marker2D" parent="."]
 position = Vector2(6916, 1013)
@@ -93,7 +98,9 @@ position = Vector2(7803, 976)
 [node name="Bat" parent="Bat4" instance=ExtResource("3_4nl8s")]
 
 [node name="Bow Skeleton3" type="Marker2D" parent="."]
-position = Vector2(7871, 1007)
+position = Vector2(7855, 999)
+
+[node name="BowSkeleton" parent="Bow Skeleton3" instance=ExtResource("6_tchit")]
 
 [node name="GS Skeleton5" type="Marker2D" parent="."]
 position = Vector2(8436, 1151)
