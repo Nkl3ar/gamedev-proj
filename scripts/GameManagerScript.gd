@@ -17,6 +17,7 @@ func sort_ascending(a, b):
 	return false
 
 func save_time():
+	print(time)
 	if beatTheGame:
 		var file = FileAccess.open(SAVE_FILE, FileAccess.READ_WRITE)
 		if (FileAccess.file_exists(SAVE_FILE)):

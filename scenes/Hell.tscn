@@ -135,6 +135,7 @@ load_path = "res://.godot/imported/fqLm3gr.png-e73a98a43292fd5710175328c7e67583.
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_dpeht")
+lastLevel = true
 
 [node name="Background" type="TileMap" parent="."]
 self_modulate = Color(0.560784, 0.560784, 0.560784, 1)
