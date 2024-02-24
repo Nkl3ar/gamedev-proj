@@ -22,7 +22,7 @@ func _physics_process(delta):
 			attacking = true
 			$Marker2D/Hurtbox.enable_damage()
 			$Marker2D/Attack.play()
-			velocity.x = direction * ATTACK_VELOCITY*50
+			velocity.x = direction * ATTACK_VELOCITY*30
 			move_and_slide()
 		else:
 			$Marker2D/Hurtbox.disable_damage()
