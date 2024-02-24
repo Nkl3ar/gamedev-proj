@@ -15,13 +15,15 @@ func _physics_process(delta):
 	if not pause_movement:
 		if inRange:
 			var direction = $Marker2D.scale.x
-			velocity.x = direction * ATTACK_VELOCITY
+			
 			pause_movement = true
 			$Marker2D/Sprite2D/AnimationPlayer.play("attack")
 			pause_movement = true
 			attacking = true
 			$Marker2D/Hurtbox.enable_damage()
 			$Marker2D/Attack.play()
+			velocity.x = direction * ATTACK_VELOCITY
+			move_and_slide()
 		else:
 			$Marker2D/Hurtbox.disable_damage()
 			$Marker2D/Sprite2D/AnimationPlayer.play("walk")
