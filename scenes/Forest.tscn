@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dghw6d64b3rs3"]
+[gd_scene load_steps=14 format=3 uid="uid://dghw6d64b3rs3"]
 
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreenDarkCastle.tres" id="1_f7lks"]
 [ext_resource type="TileSet" uid="uid://ca1mgpg7pei1o" path="res://tilesets/BasicGreenDarkCastleBG.tres" id="1_vin28"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://buk3pk6vw7t7o" path="res://prefabs/Enemies/LanceSkeleton.tscn" id="5_ixvi5"]
 [ext_resource type="Script" path="res://scripts/BossTrigger.gd" id="6_5vxej"]
 [ext_resource type="PackedScene" uid="uid://dt8p6ufyhir4o" path="res://prefabs/Enemies/BowSkeleton.tscn" id="6_waa2s"]
+[ext_resource type="PackedScene" uid="uid://dmki15e3es3q" path="res://prefabs/Scene/level_transition.tscn" id="7_pgow6"]
+[ext_resource type="PackedScene" uid="uid://b0m6wxokbtji1" path="res://scenes/Dungeon.tscn" id="8_k8b08"]
 [ext_resource type="PackedScene" uid="uid://cw4dak7x6jjm7" path="res://prefabs/Scene/death_barrier.tscn" id="10_d7a5w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rupbj"]
@@ -154,44 +156,11 @@ position = Vector2(9956, 1368)
 [node name="LevelExit" type="Marker2D" parent="."]
 position = Vector2(10853, 1369)
 
+[node name="LevelTransition" parent="LevelExit" instance=ExtResource("7_pgow6")]
+level = ExtResource("8_k8b08")
+
 [node name="MiniBossSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(10408, 1353)
-
-[node name="CollisionBarrier" parent="." instance=ExtResource("4_aus28")]
-position = Vector2(4174, 24)
-
-[node name="CollisionBarrier2" parent="." instance=ExtResource("4_aus28")]
-position = Vector2(4682, 143)
-
-[node name="CollisionBarrier3" parent="." instance=ExtResource("4_aus28")]
-position = Vector2(7972, 1002)
-
-[node name="CollisionBarrier4" parent="." instance=ExtResource("4_aus28")]
-position = Vector2(9030, 1136)
-
-[node name="CollisionBarrier5" parent="." instance=ExtResource("4_aus28")]
-position = Vector2(8312, 1148)
-
-[node name="CollisionBarrier6" parent="." instance=ExtResource("4_aus28")]
-position = Vector2(9098, 1241)
-
-[node name="CollisionBarrier7" parent="." instance=ExtResource("4_aus28")]
-position = Vector2(9423, 1242)
-
-[node name="CollisionBarrier8" parent="." instance=ExtResource("4_aus28")]
-position = Vector2(7100, 1029)
-
-[node name="CollisionBarrier9" parent="." instance=ExtResource("4_aus28")]
-position = Vector2(5223, 393)
-
-[node name="CollisionBarrier10" parent="." instance=ExtResource("4_aus28")]
-position = Vector2(5138, 302)
-
-[node name="CollisionBarrier11" parent="." instance=ExtResource("4_aus28")]
-position = Vector2(4748, 305)
-
-[node name="CollisionBarrier12" parent="." instance=ExtResource("4_aus28")]
-position = Vector2(1983, -77)
 
 [node name="BossSpawner" type="Node2D" parent="." node_paths=PackedStringArray("spawnMarker", "tilemap")]
 script = ExtResource("6_5vxej")
@@ -207,6 +176,92 @@ position = Vector2(9966, 1371)
 position = Vector2(-10, -32)
 shape = SubResource("RectangleShape2D_rupbj")
 
-[node name="DeathBarrier" parent="." instance=ExtResource("10_d7a5w")]
+[node name="DeathBarriers" type="Node2D" parent="."]
+
+[node name="DeathBarrier" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(860, 142)
+
+[node name="DeathBarrier2" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(1176, 154)
+
+[node name="DeathBarrier3" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(1770, 178)
+
+[node name="DeathBarrier4" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(2049, 181)
+
+[node name="DeathBarrier5" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(2770, 245)
+
+[node name="DeathBarrier6" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(3981, 408)
+
+[node name="DeathBarrier7" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(4221, 456)
+
+[node name="DeathBarrier8" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(4470, 516)
+
+[node name="DeathBarrier9" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(4686, 550)
+
+[node name="DeathBarrier10" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(5137, 691)
+
+[node name="DeathBarrier11" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(7135, 1344)
+
+[node name="DeathBarrier12" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(7476, 1391)
+
+[node name="DeathBarrier13" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(7959, 1499)
+
+[node name="DeathBarrier14" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(8272, 1510)
+
+[node name="DeathBarrier15" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(9073, 1620)
+
+[node name="DeathBarrier16" parent="DeathBarriers" instance=ExtResource("10_d7a5w")]
+position = Vector2(9444, 1700)
+
+[node name="CollisionBarriers" type="Node2D" parent="."]
+
+[node name="CollisionBarrier" parent="CollisionBarriers" instance=ExtResource("4_aus28")]
+position = Vector2(4174, 24)
+
+[node name="CollisionBarrier2" parent="CollisionBarriers" instance=ExtResource("4_aus28")]
+position = Vector2(4682, 143)
+
+[node name="CollisionBarrier3" parent="CollisionBarriers" instance=ExtResource("4_aus28")]
+position = Vector2(7972, 1002)
+
+[node name="CollisionBarrier4" parent="CollisionBarriers" instance=ExtResource("4_aus28")]
+position = Vector2(9030, 1136)
+
+[node name="CollisionBarrier5" parent="CollisionBarriers" instance=ExtResource("4_aus28")]
+position = Vector2(8312, 1148)
+
+[node name="CollisionBarrier6" parent="CollisionBarriers" instance=ExtResource("4_aus28")]
+position = Vector2(9098, 1241)
+
+[node name="CollisionBarrier7" parent="CollisionBarriers" instance=ExtResource("4_aus28")]
+position = Vector2(9423, 1242)
+
+[node name="CollisionBarrier8" parent="CollisionBarriers" instance=ExtResource("4_aus28")]
+position = Vector2(7100, 1029)
+
+[node name="CollisionBarrier9" parent="CollisionBarriers" instance=ExtResource("4_aus28")]
+position = Vector2(5223, 393)
+
+[node name="CollisionBarrier10" parent="CollisionBarriers" instance=ExtResource("4_aus28")]
+position = Vector2(5138, 302)
+
+[node name="CollisionBarrier11" parent="CollisionBarriers" instance=ExtResource("4_aus28")]
+position = Vector2(4748, 305)
+
+[node name="CollisionBarrier12" parent="CollisionBarriers" instance=ExtResource("4_aus28")]
+position = Vector2(1983, -77)
 
 [connection signal="body_entered" from="BossSpawner/BossTrigger" to="BossSpawner" method="_on_boss_trigger_body_entered"]
