@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED = 75.0
-@export var KNOCKBACK = -1000.0
+var KNOCKBACK = 0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var pause_movement = false
 var attacking = false
