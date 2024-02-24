@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dghw6d64b3rs3"]
+[gd_scene load_steps=12 format=3 uid="uid://dghw6d64b3rs3"]
 
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreenDarkCastle.tres" id="1_f7lks"]
 [ext_resource type="TileSet" uid="uid://ca1mgpg7pei1o" path="res://tilesets/BasicGreenDarkCastleBG.tres" id="1_vin28"]
@@ -9,13 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://buk3pk6vw7t7o" path="res://prefabs/Enemies/LanceSkeleton.tscn" id="5_ixvi5"]
 [ext_resource type="Script" path="res://scripts/BossTrigger.gd" id="6_5vxej"]
 [ext_resource type="PackedScene" uid="uid://dt8p6ufyhir4o" path="res://prefabs/Enemies/BowSkeleton.tscn" id="6_waa2s"]
-[ext_resource type="Script" path="res://scripts/DeathBarrier.gd" id="10_vpihp"]
+[ext_resource type="PackedScene" uid="uid://cw4dak7x6jjm7" path="res://prefabs/Scene/death_barrier.tscn" id="10_d7a5w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rupbj"]
 size = Vector2(20, 150)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pt8oa"]
-size = Vector2(2751, 306)
 
 [node name="Node2D" type="Node2D"]
 
@@ -210,12 +207,6 @@ position = Vector2(9966, 1371)
 position = Vector2(-10, -32)
 shape = SubResource("RectangleShape2D_rupbj")
 
-[node name="DeathBarrier" type="Area2D" parent="."]
-script = ExtResource("10_vpihp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBarrier"]
-position = Vector2(1604, 323)
-shape = SubResource("RectangleShape2D_pt8oa")
+[node name="DeathBarrier" parent="." instance=ExtResource("10_d7a5w")]
 
 [connection signal="body_entered" from="BossSpawner/BossTrigger" to="BossSpawner" method="_on_boss_trigger_body_entered"]
-[connection signal="body_entered" from="DeathBarrier" to="DeathBarrier" method="_on_body_entered"]
