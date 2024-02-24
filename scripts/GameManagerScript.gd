@@ -3,6 +3,8 @@ class_name GameManager
 
 var musicVol = 100
 var sfxVol = 100
+var time: float = 0.0
+
 func level_restart():
 	get_tree().reload_current_scene()
 
