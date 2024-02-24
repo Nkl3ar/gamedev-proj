@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://df566bycjoc6v" path="res://prefabs/Enemies/GSSkeleton.tscn" id="7_nyk8s"]
 [ext_resource type="Script" path="res://scripts/BrickBreakerTrigger.gd" id="8_h8gq2"]
 [ext_resource type="Script" path="res://scripts/BossTrigger.gd" id="9_ndqps"]
+[ext_resource type="AudioStream" uid="uid://c3c3cjah5cuh8" path="res://sfx/iron_door.ogg" id="10_bnfop"]
 [ext_resource type="PackedScene" uid="uid://da3f8h483neo6" path="res://prefabs/Enemies/BossMan.tscn" id="10_wj6lc"]
 [ext_resource type="PackedScene" uid="uid://dmki15e3es3q" path="res://prefabs/Scene/level_transition.tscn" id="11_t7wbj"]
-[ext_resource type="AudioStream" uid="uid://c8o3rspx5rax2" path="res://sfx/FallingRock.mp3" id="12_8nnub"]
 [ext_resource type="PackedScene" uid="uid://b73b3eq06rkt3" path="res://scenes/MainMenu.tscn" id="12_d8e1n"]
 [ext_resource type="AudioStream" uid="uid://b7baudsonumt3" path="res://music/Hell.mp3" id="13_a3ilw"]
 [ext_resource type="AudioStream" uid="uid://cys3ik4l4m7he" path="res://sfx/teleport.wav" id="14_81kib"]
@@ -321,7 +321,7 @@ position = Vector2(-4153, -85)
 shape = SubResource("RectangleShape2D_ggfca")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BrickBreakerTrigger"]
-stream = ExtResource("12_8nnub")
+stream = ExtResource("10_bnfop")
 bus = &"Sfx"
 
 [node name="BossSpawner" type="Node2D" parent="." node_paths=PackedStringArray("spawnMarker", "tilemap")]
@@ -339,7 +339,7 @@ position = Vector2(-3879, -900)
 shape = SubResource("RectangleShape2D_gkuip")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BossSpawner"]
-stream = ExtResource("12_8nnub")
+stream = ExtResource("10_bnfop")
 bus = &"Sfx"
 
 [node name="LevelTransition" parent="." instance=ExtResource("11_t7wbj")]

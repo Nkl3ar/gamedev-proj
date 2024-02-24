@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0pmuqerfij5c"]
+
+[ext_resource type="Script" path="res://scripts/Info.gd" id="1_wxglg"]
+
+[node name="Info" type="Node2D"]
+script = ExtResource("1_wxglg")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 195.0
+offset_top = 83.0
+offset_right = 941.0
+offset_bottom = 173.0
+
+[node name="Label" type="Label" parent="Panel"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 741.0
+offset_bottom = 81.0
+text = "Demon Might Sob je Hack and Slash igra, što znači da pretežno koriste oružje poput mačeva.
+Glavni lik ove igre je veteranski lovac demona koji istražuje tragove kulta koji štuje vraga. 
+Nakon dugotrajne potrage, našao se je u šumi gdje će sva njegova pitanja bit odgovorena."
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 195.0
+offset_top = 225.0
+offset_right = 943.0
+offset_bottom = 470.0
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 742.0
+offset_bottom = 243.0
+text = "a - micanje ulijevo
+d - micanje udesno
+razmak - skakanje
+shift - hodanje, zaključana orijentacija
+j - brzi napad
+k - jaki napad
+l - posebni napad
+shift + razmak + j [u zraku] - poseban zračni napad
+escape - izlazak"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 416.0
+offset_top = 521.0
+offset_right = 732.0
+offset_bottom = 586.0
+text = "U redu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -13,7 +13,7 @@ func _on_play_pressed():
 
 
 func _on_info_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/Info.tscn")
 
 
 func _on_exit_pressed():
