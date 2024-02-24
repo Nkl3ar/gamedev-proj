@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b23x5ybrxpxmy"]
+[gd_scene load_steps=28 format=3 uid="uid://b23x5ybrxpxmy"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_mnkqw"]
 [ext_resource type="Texture2D" uid="uid://cod2d1juvvt1m" path="res://imported_assets/Fire_Warrior/Fire_Warrior/Fire_Warrior-Sheet.png" id="2_no330"]
@@ -10,6 +10,7 @@
 [ext_resource type="Shape2D" uid="uid://dyrlci23e5ymr" path="res://prefabs/Collisions/FirebreathingHurtbox.tres" id="7_o88el"]
 [ext_resource type="Script" path="res://scripts/HurtboxScript.gd" id="9_r5c3y"]
 [ext_resource type="Script" path="res://scripts/DamageablePlayer.gd" id="10_qsn7n"]
+[ext_resource type="PackedScene" uid="uid://1mg1kwqqs55w" path="res://prefabs/Other/HUD.tscn" id="11_s7j5v"]
 
 [sub_resource type="Animation" id="Animation_fdhl8"]
 length = 0.001
@@ -933,8 +934,12 @@ disabled = true
 script = ExtResource("10_qsn7n")
 health = 5
 
+[node name="Hud" parent="." instance=ExtResource("11_s7j5v")]
+
+[connection signal="update_charge" from="." to="Hud" method="_on_player_update_charge"]
 [connection signal="animation_finished" from="Marker2D/Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Marker2D/RollFailureDetector" to="." method="_on_roll_failure_detector_body_entered"]
 [connection signal="body_exited" from="Marker2D/RollFailureDetector" to="." method="_on_roll_failure_detector_body_exited"]
 [connection signal="body_entered" from="Marker2D/Hurtbox" to="Marker2D/Hurtbox" method="_on_body_entered"]
 [connection signal="hit_for_damage" from="PDamageable" to="." method="_on_p_damageable_hit_for_damage"]
+[connection signal="update_health" from="PDamageable" to="Hud" method="_on_p_damageable_update_health"]

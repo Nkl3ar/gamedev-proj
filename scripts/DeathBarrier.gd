@@ -15,5 +15,5 @@ func _on_body_entered(body):
 	if body is MainCharacter_Player:
 		for child in body.get_children():
 					if child is PDamageable:
-						child.hit(9001)
+						child.kill_now()
 

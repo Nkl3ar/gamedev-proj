@@ -1,8 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0m6wxokbtji1"]
+[gd_scene load_steps=16 format=3 uid="uid://b0m6wxokbtji1"]
 
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreenDarkCastle.tres" id="1_q25np"]
 [ext_resource type="TileSet" uid="uid://ca1mgpg7pei1o" path="res://tilesets/BasicGreenDarkCastleBG.tres" id="1_ys3sf"]
 [ext_resource type="PackedScene" uid="uid://b23x5ybrxpxmy" path="res://prefabs/Player.tscn" id="2_8cjbd"]
+[ext_resource type="PackedScene" uid="uid://df566bycjoc6v" path="res://prefabs/Enemies/GSSkeleton.tscn" id="4_ng5eu"]
+[ext_resource type="PackedScene" uid="uid://dskkvk82laarx" path="res://prefabs/Enemies/SSHSkeleton.tscn" id="5_bspcy"]
+[ext_resource type="PackedScene" uid="uid://dt8p6ufyhir4o" path="res://prefabs/Enemies/BowSkeleton.tscn" id="6_uf7rs"]
+[ext_resource type="PackedScene" uid="uid://cmu6a6c2thvhk" path="res://prefabs/Enemies/ZombieBat.tscn" id="7_cew8p"]
+[ext_resource type="PackedScene" uid="uid://cw4dak7x6jjm7" path="res://prefabs/Scene/death_barrier.tscn" id="8_mi58a"]
+[ext_resource type="PackedScene" uid="uid://tcnm5b4bwxd1" path="res://prefabs/Scene/collision_barrier.tscn" id="9_gekyw"]
+[ext_resource type="Script" path="res://scripts/BossTrigger.gd" id="10_223m0"]
+[ext_resource type="PackedScene" uid="uid://buk3pk6vw7t7o" path="res://prefabs/Enemies/LanceSkeleton.tscn" id="11_s4hr2"]
+[ext_resource type="Script" path="res://scripts/BrickBreakerTrigger.gd" id="12_yvj5c"]
+[ext_resource type="PackedScene" uid="uid://dmki15e3es3q" path="res://prefabs/Scene/level_transition.tscn" id="13_8kdfy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvgvy"]
+size = Vector2(20, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mamhx"]
+size = Vector2(423.5, 77.5)
 
 [node name="Node2D2" type="Node2D"]
 
@@ -40,97 +56,155 @@ position = Vector2(5865, 6)
 position = Vector2(5817, -466)
 
 [node name="MiniBossSpear1" type="Marker2D" parent="."]
-position = Vector2(6362.87, -429.271)
+position = Vector2(6845, -435)
 
 [node name="MiniBossSpear2" type="Marker2D" parent="."]
-position = Vector2(6441.61, -435.57)
+position = Vector2(6897, -438)
 
 [node name="GS Skeleton" type="Marker2D" parent="."]
-position = Vector2(5863, 409)
+position = Vector2(5860, 389)
+
+[node name="GSSkeleton" parent="GS Skeleton" instance=ExtResource("4_ng5eu")]
 
 [node name="GS Skeleton2" type="Marker2D" parent="."]
-position = Vector2(5922, 440)
+position = Vector2(5919, 420)
+
+[node name="GSSkeleton" parent="GS Skeleton2" instance=ExtResource("4_ng5eu")]
 
 [node name="GS Skeleton3" type="Marker2D" parent="."]
-position = Vector2(6475, 423)
+position = Vector2(6472, 403)
+
+[node name="GSSkeleton" parent="GS Skeleton3" instance=ExtResource("4_ng5eu")]
 
 [node name="GS Skeleton4" type="Marker2D" parent="."]
-position = Vector2(6948.24, 439.648)
+position = Vector2(6945.24, 419.648)
+
+[node name="GSSkeleton" parent="GS Skeleton4" instance=ExtResource("4_ng5eu")]
 
 [node name="GS Skeleton5" type="Marker2D" parent="."]
-position = Vector2(6699, 437)
+position = Vector2(6699, 410)
+
+[node name="GSSkeleton" parent="GS Skeleton5" instance=ExtResource("4_ng5eu")]
 
 [node name="GS Skeleton6" type="Marker2D" parent="."]
-position = Vector2(736, -37)
+position = Vector2(810, -64.5559)
+
+[node name="GSSkeleton" parent="GS Skeleton6" instance=ExtResource("4_ng5eu")]
 
 [node name="GS Skeleton7" type="Marker2D" parent="."]
-position = Vector2(953.521, -40.4441)
+position = Vector2(1027.52, -68)
+
+[node name="GSSkeleton" parent="GS Skeleton7" instance=ExtResource("4_ng5eu")]
 
 [node name="GS Skeleton8" type="Marker2D" parent="."]
-position = Vector2(1151, -39)
+position = Vector2(1225, -66.5559)
+
+[node name="GSSkeleton" parent="GS Skeleton8" instance=ExtResource("4_ng5eu")]
 
 [node name="GS Skeleton9" type="Marker2D" parent="."]
-position = Vector2(3438.09, -404.562)
+position = Vector2(3442, -437)
+
+[node name="GSSkeleton" parent="GS Skeleton9" instance=ExtResource("4_ng5eu")]
 
 [node name="SSh Skeleton" type="Marker2D" parent="."]
-position = Vector2(7173, -364)
+position = Vector2(7174, -388)
+
+[node name="SSHSkeleton" parent="SSh Skeleton" instance=ExtResource("5_bspcy")]
 
 [node name="SSh Skeleton2" type="Marker2D" parent="."]
-position = Vector2(7136, 440)
+position = Vector2(7117, 410)
+
+[node name="SSHSkeleton" parent="SSh Skeleton2" instance=ExtResource("5_bspcy")]
 
 [node name="SSh Skeleton3" type="Marker2D" parent="."]
-position = Vector2(4327, -418)
+position = Vector2(4318, -443)
+
+[node name="SSHSkeleton" parent="SSh Skeleton3" instance=ExtResource("5_bspcy")]
 
 [node name="SSh Skeleton4" type="Marker2D" parent="."]
-position = Vector2(4111, -423)
+position = Vector2(4102, -448)
+
+[node name="SSHSkeleton" parent="SSh Skeleton4" instance=ExtResource("5_bspcy")]
 
 [node name="Bow Skeleton" type="Marker2D" parent="."]
-position = Vector2(3780, -408)
+position = Vector2(3781, -421)
+
+[node name="BowSkeleton" parent="Bow Skeleton" instance=ExtResource("6_uf7rs")]
 
 [node name="Bow Skeleton2" type="Marker2D" parent="."]
-position = Vector2(5444.53, 408.06)
+position = Vector2(5445, 395)
+
+[node name="BowSkeleton" parent="Bow Skeleton2" instance=ExtResource("6_uf7rs")]
 
 [node name="Bow Skeleton3" type="Marker2D" parent="."]
-position = Vector2(7072, -366)
+position = Vector2(7064, -374)
+
+[node name="BowSkeleton" parent="Bow Skeleton3" instance=ExtResource("6_uf7rs")]
 
 [node name="Bow Skeleton4" type="Marker2D" parent="."]
-position = Vector2(2569, -417)
+position = Vector2(2569, -424)
+
+[node name="BowSkeleton" parent="Bow Skeleton4" instance=ExtResource("6_uf7rs")]
 
 [node name="Bow Skeleton5" type="Marker2D" parent="."]
-position = Vector2(2776, -414)
+position = Vector2(2776, -421)
+
+[node name="BowSkeleton" parent="Bow Skeleton5" instance=ExtResource("6_uf7rs")]
 
 [node name="Bow Skeleton6" type="Marker2D" parent="."]
-position = Vector2(3027, -419)
+position = Vector2(3027, -426)
+
+[node name="BowSkeleton" parent="Bow Skeleton6" instance=ExtResource("6_uf7rs")]
 
 [node name="Bow Skeleton7" type="Marker2D" parent="."]
-position = Vector2(1935.34, -20.6018)
+position = Vector2(1935, -36)
+
+[node name="BowSkeleton" parent="Bow Skeleton7" instance=ExtResource("6_uf7rs")]
 
 [node name="Bat" type="Marker2D" parent="."]
 position = Vector2(1117.42, -115.183)
 
+[node name="Bat" parent="Bat" instance=ExtResource("7_cew8p")]
+
 [node name="Bat2" type="Marker2D" parent="."]
 position = Vector2(2189, -235)
+
+[node name="Bat" parent="Bat2" instance=ExtResource("7_cew8p")]
 
 [node name="Bat3" type="Marker2D" parent="."]
 position = Vector2(3625.81, -454.958)
 
+[node name="Bat" parent="Bat3" instance=ExtResource("7_cew8p")]
+
 [node name="Bat4" type="Marker2D" parent="."]
 position = Vector2(4463, -335)
+
+[node name="Bat" parent="Bat4" instance=ExtResource("7_cew8p")]
 
 [node name="Bat5" type="Marker2D" parent="."]
 position = Vector2(4462, -124)
 
+[node name="Bat" parent="Bat5" instance=ExtResource("7_cew8p")]
+
 [node name="Bat6" type="Marker2D" parent="."]
 position = Vector2(7546, 283)
+
+[node name="Bat" parent="Bat6" instance=ExtResource("7_cew8p")]
 
 [node name="Bat7" type="Marker2D" parent="."]
 position = Vector2(6699, 366)
 
+[node name="Bat" parent="Bat7" instance=ExtResource("7_cew8p")]
+
 [node name="Bat8" type="Marker2D" parent="."]
 position = Vector2(5728, 346)
 
+[node name="Bat" parent="Bat8" instance=ExtResource("7_cew8p")]
+
 [node name="Bat9" type="Marker2D" parent="."]
 position = Vector2(7683, -34)
+
+[node name="Bat" parent="Bat9" instance=ExtResource("7_cew8p")]
 
 [node name="Killplane" type="Marker2D" parent="."]
 position = Vector2(3608, -275)
@@ -164,3 +238,73 @@ position = Vector2(6935.75, -426.923)
 
 [node name="Gate10" type="Marker2D" parent="."]
 position = Vector2(6279, -430)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="DeathBarrier" parent="." instance=ExtResource("8_mi58a")]
+position = Vector2(3605, -76)
+
+[node name="CollisionBarrier" parent="." instance=ExtResource("9_gekyw")]
+position = Vector2(613, -44)
+
+[node name="CollisionBarrier2" parent="." instance=ExtResource("9_gekyw")]
+position = Vector2(1365, -41)
+
+[node name="CollisionBarrier3" parent="." instance=ExtResource("9_gekyw")]
+position = Vector2(3274, -425)
+
+[node name="CollisionBarrier4" parent="." instance=ExtResource("9_gekyw")]
+position = Vector2(3901, -413)
+
+[node name="CollisionBarrier5" parent="." instance=ExtResource("9_gekyw")]
+position = Vector2(4395, -422)
+
+[node name="CollisionBarrier6" parent="." instance=ExtResource("9_gekyw")]
+position = Vector2(7379, -371)
+
+[node name="BossSpawner" type="Node2D" parent="." node_paths=PackedStringArray("spawnMarker", "tilemap")]
+script = ExtResource("10_223m0")
+boss = ExtResource("11_s4hr2")
+spawnMarker = NodePath("../MiniBossSpear1")
+walls = Array[Vector2]([Vector2(392, -26), Vector2(392, -28), Vector2(433, -26), Vector2(433, -28)])
+tilemap = NodePath("../TileMap")
+
+[node name="BossTrigger" type="Area2D" parent="BossSpawner"]
+position = Vector2(9966, 1371)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossSpawner/BossTrigger"]
+position = Vector2(-3623, -1848)
+shape = SubResource("RectangleShape2D_gvgvy")
+
+[node name="BossSpawner2" type="Node2D" parent="." node_paths=PackedStringArray("spawnMarker", "tilemap")]
+script = ExtResource("10_223m0")
+boss = ExtResource("11_s4hr2")
+spawnMarker = NodePath("../MiniBossSpear2")
+walls = Array[Vector2]([Vector2(392, -27), Vector2(392, -29), Vector2(433, -27), Vector2(433, -29)])
+tilemap = NodePath("../TileMap")
+
+[node name="BossTrigger" type="Area2D" parent="BossSpawner2"]
+position = Vector2(9966, 1371)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossSpawner2/BossTrigger"]
+position = Vector2(-3646, -1848)
+shape = SubResource("RectangleShape2D_gvgvy")
+
+[node name="BrickBreakerTrigger" type="Node2D" parent="." node_paths=PackedStringArray("tilemap")]
+position = Vector2(5329, 32)
+script = ExtResource("12_yvj5c")
+walls = Array[Vector2]([Vector2(338, 3), Vector2(339, 3), Vector2(340, 3), Vector2(341, 3), Vector2(342, 3), Vector2(343, 3), Vector2(344, 3), Vector2(345, 3), Vector2(346, 3), Vector2(347, 3), Vector2(348, 3), Vector2(349, 3), Vector2(350, 3), Vector2(351, 3), Vector2(352, 3), Vector2(353, 3), Vector2(354, 3), Vector2(355, 3), Vector2(356, 3), Vector2(357, 3), Vector2(358, 3), Vector2(359, 3), Vector2(360, 3), Vector2(361, 3), Vector2(362, 3), Vector2(363, 3), Vector2(364, 3)])
+tilemap = NodePath("../TileMap")
+
+[node name="Area2D" type="Area2D" parent="BrickBreakerTrigger"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrickBreakerTrigger/Area2D"]
+position = Vector2(298.75, -27.25)
+shape = SubResource("RectangleShape2D_mamhx")
+
+[node name="LevelTransition" parent="." instance=ExtResource("13_8kdfy")]
+position = Vector2(5821, -488)
+
+[connection signal="body_entered" from="BossSpawner/BossTrigger" to="BossSpawner" method="_on_boss_trigger_body_entered"]
+[connection signal="body_entered" from="BossSpawner2/BossTrigger" to="BossSpawner2" method="_on_boss_trigger_body_entered"]
+[connection signal="body_entered" from="BrickBreakerTrigger/Area2D" to="BrickBreakerTrigger" method="_on_area_2d_body_entered"]

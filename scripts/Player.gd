@@ -16,6 +16,7 @@ const ATTACK_1_DAMAGE = 15
 const ATTACK_2_DAMAGE = 12
 const ATTACK_3_DAMAGE = 15
 
+signal update_charge(charge)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -24,6 +25,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var pause_idle = false
 var pause_movement=false
 var slammed=false
+
 
 #active rolling animation
 @export var rollingAnimActiveFrame: int = 0
@@ -48,7 +50,8 @@ func _process(delta):
 		chargeTimer = 0.3
 		if charge<100 and !chargeInUse:
 			charge+=2
-		
+	update_charge.emit(charge)
+	
 		
 	
 	if not is_on_floor() and pause_movement:
@@ -87,6 +90,7 @@ func _physics_process(delta): #in physics because a ton affects physics
 				inputAxis = direction
 			velocity.x = inputAxis * ROLL_SPEED
 			pause_idle=true
+			$PDamageable.apply_invul(1.5)
 		#Jump
 		else:
 			velocity.y = JUMP_VELOCITY
@@ -196,3 +200,4 @@ func _on_p_damageable_hit_for_damage():
 	velocity.x = direction * KNOCKBACK
 	velocity.y = -5
 	move_and_slide()
+	
