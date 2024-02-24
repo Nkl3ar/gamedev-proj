@@ -6,6 +6,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var pause_movement = false
 var attacking = false
 var inRange = false
+const ATTACK_VELOCITY = 150.0
 
 func _ready():
 	$Marker2D.scale.x*=-1
@@ -13,6 +14,8 @@ func _ready():
 func _physics_process(delta):
 	if not pause_movement:
 		if inRange:
+			var direction = $Marker2D.scale.x
+			velocity.x = direction * ATTACK_VELOCITY
 			pause_movement = true
 			$Marker2D/Sprite2D/AnimationPlayer.play("attack")
 			pause_movement = true
