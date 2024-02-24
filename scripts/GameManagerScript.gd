@@ -3,8 +3,8 @@ class_name GameManager
 
 const SAVE_FILE = "user://hi_time_table.sav"
 
-var musicVol = 100
-var sfxVol = 100
+var musicVol = 50
+var sfxVol = 50
 var time: float = 0.0
 var beatTheGame = false
 var timeArray = []
@@ -43,11 +43,6 @@ func get_time():
 func level_restart():
 	get_tree().reload_current_scene()
 
-func get_adjusted_db_music() -> float:
-	return 1.0
-
-func get_adjusted_db_sfx() -> float:
-	return 1.0
 
 # Called when the node enters the scene tree for the first time.
 
