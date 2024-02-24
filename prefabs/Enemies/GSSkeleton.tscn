@@ -228,7 +228,7 @@ position = Vector2(0, 17)
 collision_layer = 8
 collision_mask = 11
 script = ExtResource("5_t550l")
-damage = 2
+damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Hurtbox"]
 shape = ExtResource("6_ewab3")

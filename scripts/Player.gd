@@ -12,6 +12,9 @@ const ATTACK_1_GRAVITY = -150.0
 const ATTACK_2_GRAVITY = -200.0
 const ATTACK_3_GRAVITY = -150.0
 const KNOCKBACK = -1000.0
+const ATTACK_1_DAMAGE = 15
+const ATTACK_2_DAMAGE = 7
+const ATTACK_3_DAMAGE = 3
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -115,6 +118,7 @@ func _physics_process(delta): #in physics because a ton affects physics
 		rollingAnimActiveFrame = 1
 		$Marker2D/Sprite2D/AnimationPlayer.play("roll")
 	elif Input.is_action_just_pressed("attack-1") and !pause_movement and !slammed:
+		$Marker2D/Hurtbox.damage = ATTACK_1_DAMAGE
 		inputAxis = direction
 		velocity.x = inputAxis * ATTACK_VELOCITY
 		if not is_on_floor():
@@ -123,6 +127,7 @@ func _physics_process(delta): #in physics because a ton affects physics
 		pause_idle=true
 		pause_movement=true
 	elif Input.is_action_just_pressed("attack-2") and !pause_movement:
+		$Marker2D/Hurtbox.damage = ATTACK_2_DAMAGE
 		inputAxis = direction
 		velocity.x = inputAxis * ATTACK_VELOCITY
 		if not is_on_floor():
@@ -131,6 +136,7 @@ func _physics_process(delta): #in physics because a ton affects physics
 		pause_idle=true
 		pause_movement=true
 	elif Input.is_action_just_pressed("attack-3") and !pause_movement and charge>fireBreathChargeReq:
+		$Marker2D/Hurtbox.damage = ATTACK_3_DAMAGE
 		charge-=fireBreathChargeReq
 		chargeInUse=true
 		inputAxis = direction
