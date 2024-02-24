@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://be7b2ad5n00dg"]
+[gd_scene load_steps=20 format=3 uid="uid://be7b2ad5n00dg"]
 
+[ext_resource type="Script" path="res://scripts/LevelInit.gd" id="1_dpeht"]
 [ext_resource type="Texture2D" uid="uid://51tgwhd0gqcf" path="res://imported_assets/Starter Tiles Platformer/FireSet.png" id="1_hlsqa"]
 [ext_resource type="TileSet" uid="uid://bff4dfvseoisw" path="res://tilesets/HellBG.tres" id="1_qf53c"]
 [ext_resource type="PackedScene" uid="uid://b23x5ybrxpxmy" path="res://prefabs/Player.tscn" id="2_3l2sx"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://da3f8h483neo6" path="res://prefabs/Enemies/BossMan.tscn" id="10_wj6lc"]
 [ext_resource type="PackedScene" uid="uid://dmki15e3es3q" path="res://prefabs/Scene/level_transition.tscn" id="11_t7wbj"]
 [ext_resource type="PackedScene" uid="uid://b73b3eq06rkt3" path="res://scenes/MainMenu.tscn" id="12_d8e1n"]
+[ext_resource type="AudioStream" uid="uid://b7baudsonumt3" path="res://music/Hell.mp3" id="13_a3ilw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fk4gx"]
 texture = ExtResource("1_hlsqa")
@@ -130,6 +132,7 @@ size = Vector2(20, 150)
 load_path = "res://.godot/imported/fqLm3gr.png-e73a98a43292fd5710175328c7e67583.ctex"
 
 [node name="Node2D2" type="Node2D"]
+script = ExtResource("1_dpeht")
 
 [node name="Background" type="TileMap" parent="."]
 self_modulate = Color(0.560784, 0.560784, 0.560784, 1)
@@ -344,6 +347,7 @@ stretch_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect"]
 z_index = -2
+layout_mode = 0
 offset_left = 2409.0
 offset_top = -778.0
 offset_right = 3551.0
@@ -353,12 +357,16 @@ stretch_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect/TextureRect"]
 z_index = -2
+layout_mode = 0
 offset_left = 1142.0
 offset_top = -804.0
 offset_right = 2284.0
 offset_bottom = 2060.0
 texture = SubResource("CompressedTexture2D_m3h3k")
 stretch_mode = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_a3ilw")
 
 [connection signal="body_entered" from="BrickBreakerTrigger/Area2D" to="BrickBreakerTrigger" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="BossSpawner/BossTrigger" to="BossSpawner" method="_on_boss_trigger_body_entered"]

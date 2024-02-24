@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://dghw6d64b3rs3"]
+[gd_scene load_steps=17 format=3 uid="uid://dghw6d64b3rs3"]
 
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreenDarkCastle.tres" id="1_f7lks"]
+[ext_resource type="Script" path="res://scripts/LevelInit.gd" id="1_gxvfa"]
 [ext_resource type="TileSet" uid="uid://ca1mgpg7pei1o" path="res://tilesets/BasicGreenDarkCastleBG.tres" id="1_vin28"]
 [ext_resource type="PackedScene" uid="uid://b23x5ybrxpxmy" path="res://prefabs/Player.tscn" id="2_s2y3u"]
 [ext_resource type="PackedScene" uid="uid://bvg6fpo804kgg" path="res://prefabs/Enemies/StandardBat.tscn" id="3_4nl8s"]
@@ -13,11 +14,13 @@
 [ext_resource type="PackedScene" uid="uid://b0m6wxokbtji1" path="res://scenes/Dungeon.tscn" id="8_k8b08"]
 [ext_resource type="PackedScene" uid="uid://cw4dak7x6jjm7" path="res://prefabs/Scene/death_barrier.tscn" id="10_d7a5w"]
 [ext_resource type="Texture2D" uid="uid://dfravi1kivm8n" path="res://imported_assets/613a60ec0bf1df1.png" id="13_vxh7g"]
+[ext_resource type="AudioStream" uid="uid://c01nu7hmp1eiw" path="res://music/Forest.mp3" id="14_nq48l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rupbj"]
 size = Vector2(20, 150)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_gxvfa")
 
 [node name="Background" type="TileMap" parent="."]
 self_modulate = Color(0.560784, 0.560784, 0.560784, 1)
@@ -267,11 +270,14 @@ position = Vector2(1983, -77)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -2
-offset_left = -2134.0
-offset_top = -1419.0
-offset_right = 11410.0
-offset_bottom = 1620.0
+offset_left = -2177.0
+offset_top = -1648.0
+offset_right = 11367.0
+offset_bottom = 4432.0
 texture = ExtResource("13_vxh7g")
 stretch_mode = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_nq48l")
 
 [connection signal="body_entered" from="BossSpawner/BossTrigger" to="BossSpawner" method="_on_boss_trigger_body_entered"]

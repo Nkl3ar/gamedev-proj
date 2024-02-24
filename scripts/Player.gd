@@ -38,11 +38,11 @@ var chargeInUse = false
 
 var headCrushed = false
 var fallTimer = 0.4
-
 		
 func _ready():
 	rollingAnimActiveFrame = 0
 	$Marker2D/Sprite2D/AnimationPlayer.play("RESET")
+	$Marker2D/AudioStreamPlayer2D.volume_db = GameManagerScript.get_adjusted_db_sfx()
 	
 func _process(delta):
 	chargeTimer-=delta
@@ -91,16 +91,23 @@ func _physics_process(delta): #in physics because a ton affects physics
 			velocity.x = inputAxis * ROLL_SPEED
 			pause_idle=true
 			$PDamageable.apply_invul(1.5)
+			$Marker2D/AudioStreamPlayer2D.stream = load("res://sfx/PlayerRoll.wav")
+			$Marker2D/AudioStreamPlayer2D.play()
 		#Jump
 		else:
 			velocity.y = JUMP_VELOCITY
 			$Marker2D/Sprite2D/AnimationPlayer.play("jump")
+			$Marker2D/AudioStreamPlayer2D.stream = load("res://sfx/Jump.wav")
+			$Marker2D/AudioStreamPlayer2D.play()
 			pause_idle=true
+			
 	
 	if Input.is_action_pressed("attack-1") and Input.is_action_pressed("jump") and locked and !rollingAnimActiveFrame and not is_on_floor():
 		velocity.y = SLAM_VELOCITY
 		$Marker2D/Sprite2D/AnimationPlayer.stop()
 		$Marker2D/Sprite2D/AnimationPlayer.play("slam")
+		$Marker2D/AudioStreamPlayer2D.stream = load("res://sfx/PlayerRoll.wav")
+		$Marker2D/AudioStreamPlayer2D.play()
 		pause_movement=false
 		slammed=true
 		
@@ -121,6 +128,8 @@ func _physics_process(delta): #in physics because a ton affects physics
 		velocity.x = inputAxis * ROLL_SPEED
 		rollingAnimActiveFrame = 1
 		$Marker2D/Sprite2D/AnimationPlayer.play("roll")
+		$Marker2D/AudioStreamPlayer2D.stream = load("res://sfx/PlayerRoll.wav")
+		$Marker2D/AudioStreamPlayer2D.play()
 	elif Input.is_action_just_pressed("attack-1") and !pause_movement and !slammed:
 		$Marker2D/Hurtbox.damage = ATTACK_1_DAMAGE
 		inputAxis = direction
@@ -151,6 +160,9 @@ func _physics_process(delta): #in physics because a ton affects physics
 		pause_idle=true
 		pause_movement=true
 	elif inputAxis and !pause_movement:
+		if(!$Marker2D/AudioStreamPlayer2D.playing):
+			$Marker2D/AudioStreamPlayer2D.stream = load("res://sfx/PlayerFootsteps.mp3")
+			$Marker2D/AudioStreamPlayer2D.play()
 		var anim = "walk"
 		if locked:
 			velocity.x = inputAxis * LOCK_SPEED
@@ -196,6 +208,8 @@ func _on_p_damageable_hit_for_damage():
 	pause_idle=true
 	$Marker2D/Sprite2D/AnimationPlayer.stop()
 	$Marker2D/Sprite2D/AnimationPlayer.play("hit")
+	$Marker2D/AudioStreamPlayer2D.stream = load("res://sfx/PlayerHitSound.wav")
+	$Marker2D/AudioStreamPlayer2D.play()
 	var direction = $Marker2D.scale.x
 	velocity.x = direction * KNOCKBACK
 	velocity.y = -5

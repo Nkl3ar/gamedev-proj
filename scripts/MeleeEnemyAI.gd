@@ -9,6 +9,8 @@ var inRange = false
 
 func _ready():
 	$Marker2D.scale.x*=-1
+	$Marker2D/Attack.volume_db = GameManagerScript.get_adjusted_db_sfx()
+	$Marker2D/Hit.volume_db = GameManagerScript.get_adjusted_db_sfx()
 
 func _physics_process(delta):
 	if not pause_movement:
@@ -18,6 +20,7 @@ func _physics_process(delta):
 			pause_movement = true
 			attacking = true
 			$Marker2D/Hurtbox.enable_damage()
+			$Marker2D/Attack.play()
 		else:
 			$Marker2D/Hurtbox.disable_damage()
 			$Marker2D/Sprite2D/AnimationPlayer.play("walk")
@@ -35,6 +38,8 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_damageable_hit_for_damage():
 	$Marker2D/Sprite2D/AnimationPlayer.play("hit")
+	$Marker2D/Attack.stop()
+	$Marker2D/Hit.play()
 	pause_movement=true
 	var direction = $Marker2D.scale.x
 	velocity.x = direction * KNOCKBACK

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://df566bycjoc6v"]
+[gd_scene load_steps=32 format=3 uid="uid://df566bycjoc6v"]
 
 [ext_resource type="Script" path="res://scripts/MeleeEnemyAI.gd" id="1_h7cvp"]
 [ext_resource type="Texture2D" uid="uid://by4hx4dtt3v81" path="res://imported_assets/HeroandOpponents_v1/1 Enemy/walk-1.png" id="2_n5tar"]
@@ -23,7 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://caja2tpaswncg" path="res://imported_assets/HeroandOpponents_v1/1 Enemy/attack-A7.png" id="18_w150n"]
 [ext_resource type="Texture2D" uid="uid://cnfvhluusb56x" path="res://imported_assets/HeroandOpponents_v1/1 Enemy/attack-A8.png" id="19_tdaan"]
 [ext_resource type="Shape2D" uid="uid://1pskohjqkkj6" path="res://prefabs/Collisions/SkeletonSwordAttack.tres" id="20_5yqna"]
+[ext_resource type="AudioStream" uid="uid://cdtt3ytpu4s3u" path="res://sfx/GSSkeletonAttack.mp3" id="24_nxusw"]
 [ext_resource type="Script" path="res://scripts/SkeletonPlayerDetect.gd" id="24_ptv5e"]
+[ext_resource type="AudioStream" uid="uid://b6wj03aq8dwsq" path="res://sfx/EnemyHitSound.wav" id="26_1hn7a"]
 
 [sub_resource type="Animation" id="Animation_vu8m2"]
 length = 0.001
@@ -232,6 +234,12 @@ damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Hurtbox"]
 shape = ExtResource("6_ewab3")
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="Marker2D"]
+stream = ExtResource("24_nxusw")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="Marker2D"]
+stream = ExtResource("26_1hn7a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 18)

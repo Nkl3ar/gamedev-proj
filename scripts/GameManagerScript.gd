@@ -1,8 +1,16 @@
 extends Node
 class_name GameManager
+
+var musicVol = 100
+var sfxVol = 100
 func level_restart():
 	get_tree().reload_current_scene()
-	
+
+func get_adjusted_db_music() -> float:
+	return 1.0
+
+func get_adjusted_db_sfx() -> float:
+	return 1.0
 
 # Called when the node enters the scene tree for the first time.
 

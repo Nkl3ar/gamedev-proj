@@ -20,7 +20,6 @@ func _process(delta):
 signal hit_for_damage
 signal update_health(health)
 func kill_now():
-		if(health<=0):
 			GameManagerScript.level_restart()
 	
 	

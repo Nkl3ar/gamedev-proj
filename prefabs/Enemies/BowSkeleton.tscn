@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dt8p6ufyhir4o"]
+[gd_scene load_steps=26 format=3 uid="uid://dt8p6ufyhir4o"]
 
 [ext_resource type="Script" path="res://scripts/BowSkeleton.gd" id="1_dqnx8"]
 [ext_resource type="Script" path="res://scripts/Damageable.gd" id="2_2sr1d"]
@@ -10,8 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://dmg8u66f75w1s" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/attack-A4.png" id="7_hhea2"]
 [ext_resource type="Texture2D" uid="uid://d1mjgyc3bbg5s" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/attack-A5.png" id="8_u1u8m"]
 [ext_resource type="Texture2D" uid="uid://cblcbxkputn1c" path="res://imported_assets/HeroandOpponents_v1/2 Enemy/attack-A12.png" id="16_1ewsr"]
+[ext_resource type="AudioStream" uid="uid://cguecmbnf4831" path="res://sfx/BowAttack.wav" id="16_kost4"]
 [ext_resource type="Texture2D" uid="uid://b1slqw57fai0" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/hit-1.png" id="16_ooxcn"]
 [ext_resource type="Texture2D" uid="uid://c1dt53x30065a" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/hit-2.png" id="17_77gru"]
+[ext_resource type="AudioStream" uid="uid://b6wj03aq8dwsq" path="res://sfx/EnemyHitSound.wav" id="17_po1de"]
 [ext_resource type="Texture2D" uid="uid://dccy2rne0yhuj" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/hit-3.png" id="18_cdhlg"]
 [ext_resource type="Texture2D" uid="uid://6tgp1idkh007" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/hit-4.png" id="19_dtl78"]
 [ext_resource type="Texture2D" uid="uid://5ukvxgfosbyl" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/idle-2.png" id="20_xfrpv"]
@@ -138,6 +140,12 @@ position = Vector2(-56, -6)
 
 [node name="MarkerFire2" type="Marker2D" parent="Marker2D"]
 position = Vector2(63, -6)
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="Marker2D"]
+stream = ExtResource("16_kost4")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="Marker2D"]
+stream = ExtResource("17_po1de")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

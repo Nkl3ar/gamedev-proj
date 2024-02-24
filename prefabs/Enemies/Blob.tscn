@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c538sveja8uy8"]
+[gd_scene load_steps=32 format=3 uid="uid://c538sveja8uy8"]
 
 [ext_resource type="Script" path="res://scripts/MeleeEnemyAI.gd" id="1_8ovie"]
 [ext_resource type="Script" path="res://scripts/Damageable.gd" id="2_gxrmp"]
@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://j3e70mtadf3e" path="res://imported_assets/HeroandOpponents_v1/3 Enemy/walk-4.png" id="22_brrjy"]
 [ext_resource type="Script" path="res://scripts/SkeletonPlayerDetect.gd" id="22_vfyn8"]
 [ext_resource type="Script" path="res://scripts/HurtboxScript.gd" id="23_1b6s5"]
+[ext_resource type="AudioStream" uid="uid://b6pwgucvlgycc" path="res://sfx/SShAttack.wav" id="24_tro74"]
+[ext_resource type="AudioStream" uid="uid://b6wj03aq8dwsq" path="res://sfx/EnemyHitSound.wav" id="25_asb8m"]
 
 [sub_resource type="Animation" id="Animation_vu8m2"]
 length = 0.001
@@ -246,6 +248,12 @@ damage = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Hurtbox"]
 position = Vector2(0, 9)
 shape = ExtResource("19_kmktl")
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="Marker2D"]
+stream = ExtResource("24_tro74")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="Marker2D"]
+stream = ExtResource("25_asb8m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 26.5)
