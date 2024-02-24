@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://be7b2ad5n00dg"]
+[gd_scene load_steps=23 format=3 uid="uid://be7b2ad5n00dg"]
 
 [ext_resource type="Script" path="res://scripts/LevelInit.gd" id="1_dpeht"]
 [ext_resource type="Texture2D" uid="uid://51tgwhd0gqcf" path="res://imported_assets/Starter Tiles Platformer/FireSet.png" id="1_hlsqa"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b73b3eq06rkt3" path="res://scenes/MainMenu.tscn" id="12_d8e1n"]
 [ext_resource type="AudioStream" uid="uid://b7baudsonumt3" path="res://music/Hell.mp3" id="13_a3ilw"]
 [ext_resource type="AudioStream" uid="uid://cys3ik4l4m7he" path="res://sfx/teleport.wav" id="14_81kib"]
+[ext_resource type="Texture2D" uid="uid://dgoe5p1fvjdfa" path="res://imported_assets/fqLm3grCopy.png" id="15_qxy3v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fk4gx"]
 texture = ExtResource("1_hlsqa")
@@ -372,8 +373,26 @@ layout_mode = 0
 offset_left = 1142.0
 offset_top = -804.0
 offset_right = 4591.0
-offset_bottom = 3785.0
+offset_bottom = 2060.0
 texture = SubResource("CompressedTexture2D_m3h3k")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = -2
+offset_left = 2517.0
+offset_top = 647.0
+offset_right = 9130.0
+offset_bottom = 2093.0
+texture = ExtResource("15_qxy3v")
+stretch_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+z_index = -2
+offset_left = 6018.0
+offset_top = 471.0
+offset_right = 12631.0
+offset_bottom = 1917.0
+texture = ExtResource("15_qxy3v")
 stretch_mode = 1
 
 [node name="Teleport" type="AudioStreamPlayer2D" parent="."]

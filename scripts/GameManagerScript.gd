@@ -21,6 +21,7 @@ func save_time():
 	if beatTheGame:
 		var file = FileAccess.open(SAVE_FILE, FileAccess.READ_WRITE)
 		if (FileAccess.file_exists(SAVE_FILE)):
+			print("passed")
 			timeArray = file.get_var()
 			timeArray.append(time)
 		else:
@@ -29,6 +30,7 @@ func save_time():
 		
 		timeArray.sort_custom(sort_ascending)
 		file.store_var(timeArray)
+		print(timeArray)
 		
 		file.close()
 	beatTheGame = false
