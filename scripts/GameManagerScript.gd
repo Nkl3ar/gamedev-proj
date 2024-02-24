@@ -7,38 +7,31 @@ var musicVol = 50
 var sfxVol = 50
 var time: float = 0.0
 var beatTheGame = false
-var timeArray = []
+var bestTime = 0.0
 
-func sort_ascending(a, b):
-	if b == 0.0:
-		return true
-	if a < b:
-		return true
-	return false
 
 func save_time():
 	print(time)
 	if beatTheGame:
 		var file = FileAccess.open(SAVE_FILE, FileAccess.READ_WRITE)
 		if (FileAccess.file_exists(SAVE_FILE)):
-			timeArray = file.get_var()
-			timeArray.append(time)
+			bestTime = file.get_float()
+			if (bestTime>time):
+				file.close()
+				file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
+				file.store_float(time)
 		else:
 			file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
-			timeArray = [time]
-		
-		timeArray.sort_custom(sort_ascending)
-		file.store_var(timeArray)
+			file.store_float(time)
+	
 		
 		file.close()
 	beatTheGame = false
-	print(timeArray)
 
 func get_time():
 	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
 	if (FileAccess.file_exists(SAVE_FILE)):
-		timeArray = file.get_var()
-		timeArray.sort_custom(sort_ascending)
+		bestTime = file.get_float()
 		file.close()
 	
 
