@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmki15e3es3q"]
+[gd_scene load_steps=4 format=3 uid="uid://dmki15e3es3q"]
 
 [ext_resource type="Script" path="res://scripts/LevelTransition.gd" id="1_el5he"]
+[ext_resource type="Texture2D" uid="uid://dl2iqpucarv01" path="res://imported_assets/portal01.png" id="2_c65jm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrmir"]
 size = Vector2(14, 33)
@@ -11,5 +12,11 @@ script = ExtResource("1_el5he")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 13.5)
 shape = SubResource("RectangleShape2D_yrmir")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-3, 14)
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("2_c65jm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

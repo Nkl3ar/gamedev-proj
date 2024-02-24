@@ -15,6 +15,7 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if !triggered and body is MainCharacter_Player:
+		$AudioStreamPlayer.play()
 		triggered = true
 		for im in walls:
 			tilemap.set_cell(0, im, -1, Vector2(0, 0))

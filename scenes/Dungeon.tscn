@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b0m6wxokbtji1"]
+[gd_scene load_steps=22 format=3 uid="uid://b0m6wxokbtji1"]
 
 [ext_resource type="Script" path="res://scripts/LevelInit.gd" id="1_ocner"]
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreenDarkCastle.tres" id="1_q25np"]
@@ -13,9 +13,12 @@
 [ext_resource type="Script" path="res://scripts/BossTrigger.gd" id="10_223m0"]
 [ext_resource type="PackedScene" uid="uid://buk3pk6vw7t7o" path="res://prefabs/Enemies/LanceSkeleton.tscn" id="11_s4hr2"]
 [ext_resource type="Script" path="res://scripts/BrickBreakerTrigger.gd" id="12_yvj5c"]
+[ext_resource type="AudioStream" uid="uid://c3c3cjah5cuh8" path="res://sfx/iron_door.ogg" id="13_3hy5u"]
 [ext_resource type="PackedScene" uid="uid://dmki15e3es3q" path="res://prefabs/Scene/level_transition.tscn" id="13_8kdfy"]
 [ext_resource type="Texture2D" uid="uid://degj2iykagu4k" path="res://imported_assets/awesomeCavePixelArt.png" id="14_wbymj"]
+[ext_resource type="AudioStream" uid="uid://c8o3rspx5rax2" path="res://sfx/FallingRock.mp3" id="15_efrvy"]
 [ext_resource type="AudioStream" uid="uid://d2j3r6w2gea15" path="res://music/Dungeon.mp3" id="16_hu6fd"]
+[ext_resource type="AudioStream" uid="uid://cys3ik4l4m7he" path="res://sfx/teleport.wav" id="17_suayx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvgvy"]
 size = Vector2(20, 150)
@@ -280,6 +283,10 @@ position = Vector2(9966, 1371)
 position = Vector2(-3623, -1848)
 shape = SubResource("RectangleShape2D_gvgvy")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BossSpawner"]
+stream = ExtResource("13_3hy5u")
+bus = &"Sfx"
+
 [node name="BossSpawner2" type="Node2D" parent="." node_paths=PackedStringArray("spawnMarker", "tilemap")]
 script = ExtResource("10_223m0")
 boss = ExtResource("11_s4hr2")
@@ -294,6 +301,10 @@ position = Vector2(9966, 1371)
 position = Vector2(-3646, -1848)
 shape = SubResource("RectangleShape2D_gvgvy")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BossSpawner2"]
+stream = ExtResource("13_3hy5u")
+bus = &"Sfx"
+
 [node name="BrickBreakerTrigger" type="Node2D" parent="." node_paths=PackedStringArray("tilemap")]
 position = Vector2(5329, 32)
 script = ExtResource("12_yvj5c")
@@ -305,6 +316,10 @@ tilemap = NodePath("../TileMap")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BrickBreakerTrigger/Area2D"]
 position = Vector2(298.75, -27.25)
 shape = SubResource("RectangleShape2D_mamhx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BrickBreakerTrigger"]
+stream = ExtResource("15_efrvy")
+bus = &"Sfx"
 
 [node name="LevelTransition" parent="." instance=ExtResource("13_8kdfy")]
 position = Vector2(5821, -488)
@@ -320,7 +335,13 @@ stretch_mode = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_hu6fd")
+volume_db = -20.0
 bus = &"Music"
+
+[node name="Teleport" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_suayx")
+autoplay = true
+bus = &"Sfx"
 
 [connection signal="body_entered" from="BossSpawner/BossTrigger" to="BossSpawner" method="_on_boss_trigger_body_entered"]
 [connection signal="body_entered" from="BossSpawner2/BossTrigger" to="BossSpawner2" method="_on_boss_trigger_body_entered"]

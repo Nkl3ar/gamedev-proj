@@ -32,6 +32,8 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_damageable_hit_for_damage():
 	$Marker2D/Sprite2D/AnimationPlayer.play("hit")
+	$Marker2D/Attack.stop()
+	$Marker2D/Hit.play()
 	pause_movement=true
 	var direction = $Marker2D.scale.x
 	velocity.x = direction * KNOCKBACK
@@ -44,6 +46,7 @@ func _on_hurtbox_body_entered(body):
 	pass
 
 func _call_fire():
+	$Marker2D/Attack.play()
 	var arrow_instance = arrow.instantiate()
 	arrow_instance.Marker2dRotation = $Marker2D.scale.x
 	if $Marker2D.scale.x == -1:

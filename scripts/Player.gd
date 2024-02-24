@@ -105,7 +105,9 @@ func _physics_process(delta): #in physics because a ton affects physics
 		velocity.y = SLAM_VELOCITY
 		$Marker2D/Sprite2D/AnimationPlayer.stop()
 		$Marker2D/Sprite2D/AnimationPlayer.play("slam")
-		$Marker2D/AudioStreamPlayer2D.stream = load("res://sfx/PlayerRoll.wav")
+		if(!$Marker2D/AudioStreamPlayer2D.playing):
+			$Marker2D/AudioStreamPlayer2D.stream = load("res://sfx/PlayerRoll.wav")
+			$Marker2D/AudioStreamPlayer2D.play()
 		$Marker2D/AudioStreamPlayer2D.play()
 		pause_movement=false
 		slammed=true
