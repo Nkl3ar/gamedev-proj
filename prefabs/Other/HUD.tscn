@@ -1,18 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://1mg1kwqqs55w"]
+[gd_scene load_steps=5 format=3 uid="uid://1mg1kwqqs55w"]
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_b06a2"]
+[ext_resource type="StyleBox" uid="uid://bppuxr75vs1cn" path="res://prefabs/StyleBoxes/Empty.tres" id="2_266fj"]
+[ext_resource type="StyleBox" uid="uid://drr3yc6uwji0q" path="res://prefabs/StyleBoxes/Medium.tres" id="3_el6qi"]
+[ext_resource type="StyleBox" uid="uid://hj1v2wpa2m4l" path="res://prefabs/StyleBoxes/High.tres" id="3_nntjl"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_b06a2")
 
 [node name="Health" type="Label" parent="."]
+z_index = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = -33.0
-offset_right = 49.0
-offset_bottom = 5.0
+offset_left = 18.0
+offset_top = -621.0
+offset_right = 52.0
+offset_bottom = -583.0
 grow_vertical = 0
 text = "HP: "
 
@@ -70,18 +74,19 @@ offset_bottom = 26.0
 text = "00"
 
 [node name="Charge" type="Label" parent="."]
+z_index = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -118.0
-offset_top = -37.0
-offset_right = -54.0
-offset_bottom = 1.0
+offset_left = -1134.0
+offset_top = -581.0
+offset_right = -1061.0
+offset_bottom = -543.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Charge: "
+text = "CHARGE: "
 
 [node name="ChargeValue" type="Label" parent="Charge"]
 layout_mode = 1
@@ -97,3 +102,25 @@ offset_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "0"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = 18.0
+offset_top = 26.0
+offset_right = 336.0
+offset_bottom = 53.0
+theme_override_styles/background = ExtResource("2_266fj")
+theme_override_styles/fill = ExtResource("3_nntjl")
+max_value = 5.0
+step = 1.0
+show_percentage = false
+
+[node name="ChargeBar" type="ProgressBar" parent="."]
+offset_left = 18.0
+offset_top = 66.0
+offset_right = 336.0
+offset_bottom = 93.0
+theme_override_styles/background = ExtResource("2_266fj")
+theme_override_styles/fill = ExtResource("3_el6qi")
+step = 1.0
+value = 50.0
+show_percentage = false
