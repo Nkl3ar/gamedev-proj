@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://51tgwhd0gqcf" path="res://imported_assets/Starter Tiles Platformer/FireSet.png" id="1_hlsqa"]
 [ext_resource type="TileSet" uid="uid://bff4dfvseoisw" path="res://tilesets/HellBG.tres" id="1_qf53c"]
 [ext_resource type="PackedScene" uid="uid://b23x5ybrxpxmy" path="res://prefabs/Player.tscn" id="2_3l2sx"]
-[ext_resource type="PackedScene" uid="uid://buk3pk6vw7t7o" path="res://prefabs/Enemies/LanceSkeleton.tscn" id="4_s2yul"]
+[ext_resource type="PackedScene" path="../prefabs/Enemies/LanceSkeleton.tscn" id="4_s2yul"]
 [ext_resource type="PackedScene" uid="uid://dskkvk82laarx" path="res://prefabs/Enemies/SSHSkeleton.tscn" id="5_221go"]
 [ext_resource type="PackedScene" uid="uid://tcnm5b4bwxd1" path="res://prefabs/Scene/collision_barrier.tscn" id="6_1pu7x"]
 [ext_resource type="PackedScene" uid="uid://df566bycjoc6v" path="res://prefabs/Enemies/GSSkeleton.tscn" id="7_nyk8s"]

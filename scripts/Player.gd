@@ -89,12 +89,13 @@ func _physics_process(delta): #in physics because a ton affects physics
 				inputAxis = direction
 			velocity.x = inputAxis * ROLL_SPEED
 			pause_idle=true
-			$PDamageable.apply_invul(1.5)
+			$PDamageable.apply_invul(1.2)
 			$Marker2D/AudioStreamPlayer2D.stream = load("res://sfx/PlayerRoll.wav")
 			$Marker2D/AudioStreamPlayer2D.play()
 		#Jump
 		else:
 			velocity.y = JUMP_VELOCITY
+			$PDamageable.apply_invul(0.5)
 			$Marker2D/Sprite2D/AnimationPlayer.play("jump")
 			$Marker2D/AudioStreamPlayer2D.stream = load("res://sfx/Jump.wav")
 			$Marker2D/AudioStreamPlayer2D.play()
