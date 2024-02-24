@@ -200,7 +200,7 @@ script = ExtResource("1_h7cvp")
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("4_25vn3")
-health = 30
+health = 50
 
 [node name="Marker2D" type="Marker2D" parent="."]
 

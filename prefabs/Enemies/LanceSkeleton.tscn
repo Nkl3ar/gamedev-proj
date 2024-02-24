@@ -212,11 +212,11 @@ size = Vector2(84.5, 62)
 collision_layer = 11
 collision_mask = 9
 script = ExtResource("1_ftv65")
-SPEED = 200.0
+SPEED = 250.0
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("2_hsc1u")
-health = 50
+health = 400
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
