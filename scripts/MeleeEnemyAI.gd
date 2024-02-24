@@ -6,7 +6,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var pause_movement = false
 var attacking = false
 var inRange = false
-const ATTACK_VELOCITY = 150.0
+@export var ATTACK_VELOCITY = 20.0
 
 func _ready():
 	$Marker2D.scale.x*=-1
