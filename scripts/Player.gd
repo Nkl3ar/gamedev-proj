@@ -95,7 +95,7 @@ func _physics_process(delta): #in physics because a ton affects physics
 		#Jump
 		else:
 			velocity.y = JUMP_VELOCITY
-			$PDamageable.apply_invul(0.5)
+			#$PDamageable.apply_invul(0.5)
 			$Marker2D/Sprite2D/AnimationPlayer.play("jump")
 			$Marker2D/AudioStreamPlayer2D.stream = load("res://sfx/Jump.wav")
 			$Marker2D/AudioStreamPlayer2D.play()
