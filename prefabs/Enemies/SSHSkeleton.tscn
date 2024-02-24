@@ -253,9 +253,11 @@ shape = ExtResource("4_ei37q")
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="Marker2D"]
 stream = ExtResource("28_wqyxd")
+bus = &"Sfx"
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="Marker2D"]
 stream = ExtResource("29_xc8dt")
+bus = &"Sfx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 18)

@@ -42,7 +42,6 @@ var fallTimer = 0.4
 func _ready():
 	rollingAnimActiveFrame = 0
 	$Marker2D/Sprite2D/AnimationPlayer.play("RESET")
-	$Marker2D/AudioStreamPlayer2D.volume_db = GameManagerScript.get_adjusted_db_sfx()
 	
 func _process(delta):
 	chargeTimer-=delta
@@ -137,6 +136,8 @@ func _physics_process(delta): #in physics because a ton affects physics
 		if not is_on_floor():
 			velocity.y = ATTACK_1_GRAVITY
 		$Marker2D/Sprite2D/AnimationPlayer.play("attack-1")
+		$Marker2D/AudioStreamPlayer2D.stream = load("res://sfx/Attack1.mp3")
+		$Marker2D/AudioStreamPlayer2D.play()
 		pause_idle=true
 		pause_movement=true
 	elif Input.is_action_just_pressed("attack-2") and !pause_movement:
@@ -146,6 +147,8 @@ func _physics_process(delta): #in physics because a ton affects physics
 		if not is_on_floor():
 			velocity.y = ATTACK_2_GRAVITY
 		$Marker2D/Sprite2D/AnimationPlayer.play("attack-2")
+		$Marker2D/AudioStreamPlayer2D.stream = load("res://sfx/Attack2.mp3")
+		$Marker2D/AudioStreamPlayer2D.play()
 		pause_idle=true
 		pause_movement=true
 	elif Input.is_action_just_pressed("attack-3") and !pause_movement and charge>fireBreathChargeReq:
@@ -157,6 +160,8 @@ func _physics_process(delta): #in physics because a ton affects physics
 		if not is_on_floor():
 			velocity.y = ATTACK_3_GRAVITY
 		$Marker2D/Sprite2D/AnimationPlayer.play("attack-3")
+		$Marker2D/AudioStreamPlayer2D.stream = load("res://sfx/Fire.mp3")
+		$Marker2D/AudioStreamPlayer2D.play()
 		pause_idle=true
 		pause_movement=true
 	elif inputAxis and !pause_movement:

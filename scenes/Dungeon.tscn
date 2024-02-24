@@ -320,6 +320,7 @@ stretch_mode = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_hu6fd")
+bus = &"Music"
 
 [connection signal="body_entered" from="BossSpawner/BossTrigger" to="BossSpawner" method="_on_boss_trigger_body_entered"]
 [connection signal="body_entered" from="BossSpawner2/BossTrigger" to="BossSpawner2" method="_on_boss_trigger_body_entered"]

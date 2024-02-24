@@ -367,6 +367,7 @@ stretch_mode = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_a3ilw")
+bus = &"Music"
 
 [connection signal="body_entered" from="BrickBreakerTrigger/Area2D" to="BrickBreakerTrigger" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="BossSpawner/BossTrigger" to="BossSpawner" method="_on_boss_trigger_body_entered"]

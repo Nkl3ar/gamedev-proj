@@ -143,9 +143,11 @@ position = Vector2(63, -6)
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="Marker2D"]
 stream = ExtResource("16_kost4")
+bus = &"Sfx"
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="Marker2D"]
 stream = ExtResource("17_po1de")
+bus = &"Sfx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

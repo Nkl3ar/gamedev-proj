@@ -9,8 +9,6 @@ var inRange = false
 
 func _ready():
 	$Marker2D.scale.x*=-1
-	$Marker2D/Attack.volume_db = GameManagerScript.get_adjusted_db_sfx()
-	$Marker2D/Hit.volume_db = GameManagerScript.get_adjusted_db_sfx()
 
 func _physics_process(delta):
 	if not pause_movement:
