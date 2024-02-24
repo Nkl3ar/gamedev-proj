@@ -371,8 +371,8 @@ z_index = -2
 layout_mode = 0
 offset_left = 1142.0
 offset_top = -804.0
-offset_right = 2284.0
-offset_bottom = 2060.0
+offset_right = 4591.0
+offset_bottom = 3785.0
 texture = SubResource("CompressedTexture2D_m3h3k")
 stretch_mode = 1
 
