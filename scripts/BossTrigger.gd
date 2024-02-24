@@ -30,3 +30,6 @@ func _on_boss_trigger_body_entered(body):
 		add_child(enemy)
 		for im in walls:
 			tilemap.set_cell(0, im, tile_index, Vector2(0, 0))
+		for child in body.get_children():
+				if child is PDamageable:
+					child.hit(-3)

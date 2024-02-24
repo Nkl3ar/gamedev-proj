@@ -26,7 +26,8 @@ func kill_now():
 	
 func hit(damage):
 		if !invul:
-			hit_for_damage.emit()
+			if (damage>0):
+				hit_for_damage.emit()
 			health-=damage
 			if(health<=0):
 				GameManagerScript.level_restart()
