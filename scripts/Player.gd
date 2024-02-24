@@ -25,17 +25,29 @@ var slammed=false
 #active rolling animation
 @export var rollingAnimActiveFrame: int = 0
 
+@export var fireBreathChargeReq: int = 50
 #charge
-@export var charge: int = 0
+@export var charge: int = 100
+var chargeTimer = 0.3
+var chargeInUse = false
 
 var headCrushed = false
 var fallTimer = 0.4
+
 
 func _ready():
 	rollingAnimActiveFrame = 0
 	$Marker2D/Sprite2D/AnimationPlayer.play("RESET")
 	
 func _process(delta):
+	chargeTimer-=delta
+	if chargeTimer<0:
+		chargeTimer = 0.3
+		if charge<100 and !chargeInUse:
+			charge+=2
+		
+		
+	
 	if not is_on_floor() and pause_movement:
 		fallTimer -= delta
 	else:
@@ -118,7 +130,9 @@ func _physics_process(delta): #in physics because a ton affects physics
 		$Marker2D/Sprite2D/AnimationPlayer.play("attack-2")
 		pause_idle=true
 		pause_movement=true
-	elif Input.is_action_just_pressed("attack-3") and !pause_movement:
+	elif Input.is_action_just_pressed("attack-3") and !pause_movement and charge>fireBreathChargeReq:
+		charge-=fireBreathChargeReq
+		chargeInUse=true
 		inputAxis = direction
 		velocity.x = inputAxis * ATTACK_VELOCITY
 		if not is_on_floor():
@@ -163,6 +177,7 @@ func _on_animation_player_animation_finished(anim_name):
 	rollingAnimActiveFrame = 0
 	pause_idle=false
 	pause_movement=false
+	chargeInUse=false
 
 
 func _on_damageable_hit_for_damage():

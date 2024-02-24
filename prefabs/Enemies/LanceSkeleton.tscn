@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://buk3pk6vw7t7o"]
 
-[ext_resource type="Script" path="res://scripts/LanceSkeleton.gd" id="1_tik63"]
+[ext_resource type="Script" path="res://scripts/MeleeEnemyAI.gd" id="1_ftv65"]
 [ext_resource type="Script" path="res://scripts/Damageable.gd" id="2_hsc1u"]
 [ext_resource type="Texture2D" uid="uid://df8qgrap701x0" path="res://imported_assets/HeroandOpponents_v1/4 Enemy/walk-1.png" id="3_fab5v"]
 [ext_resource type="Shape2D" uid="uid://cgu8nqp4wpa2e" path="res://prefabs/Collisions/SkeletonHurtbox.tres" id="4_s371d"]
@@ -211,8 +211,9 @@ size = Vector2(84.5, 62)
 [node name="LanceSkeleton" type="CharacterBody2D"]
 collision_layer = 11
 collision_mask = 9
-script = ExtResource("1_tik63")
+script = ExtResource("1_ftv65")
 SPEED = 300.0
+KNOCKBACK = 0.0
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("2_hsc1u")

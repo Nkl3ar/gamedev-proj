@@ -1,0 +1,156 @@
+[gd_scene load_steps=24 format=3 uid="uid://dt8p6ufyhir4o"]
+
+[ext_resource type="Script" path="res://scripts/BowSkeleton.gd" id="1_dqnx8"]
+[ext_resource type="Script" path="res://scripts/Damageable.gd" id="2_2sr1d"]
+[ext_resource type="Texture2D" uid="uid://c05eeex8m0hmq" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/idle-1.png" id="3_w5aug"]
+[ext_resource type="Texture2D" uid="uid://dvxn162t5r25s" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/attack-A1.png" id="4_ovwxh"]
+[ext_resource type="Shape2D" uid="uid://cgu8nqp4wpa2e" path="res://prefabs/Collisions/SkeletonHurtbox.tres" id="4_qqlxs"]
+[ext_resource type="Texture2D" uid="uid://dqkihu6ovwj1t" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/attack-A6.png" id="5_powpo"]
+[ext_resource type="Texture2D" uid="uid://bwwyy1oaavqf8" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/attack-A3.png" id="6_cemnm"]
+[ext_resource type="Texture2D" uid="uid://dmg8u66f75w1s" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/attack-A4.png" id="7_hhea2"]
+[ext_resource type="Texture2D" uid="uid://d1mjgyc3bbg5s" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/attack-A5.png" id="8_u1u8m"]
+[ext_resource type="Texture2D" uid="uid://cblcbxkputn1c" path="res://imported_assets/HeroandOpponents_v1/2 Enemy/attack-A12.png" id="16_1ewsr"]
+[ext_resource type="Texture2D" uid="uid://b1slqw57fai0" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/hit-1.png" id="16_ooxcn"]
+[ext_resource type="Texture2D" uid="uid://c1dt53x30065a" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/hit-2.png" id="17_77gru"]
+[ext_resource type="Texture2D" uid="uid://dccy2rne0yhuj" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/hit-3.png" id="18_cdhlg"]
+[ext_resource type="Texture2D" uid="uid://6tgp1idkh007" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/hit-4.png" id="19_dtl78"]
+[ext_resource type="Texture2D" uid="uid://5ukvxgfosbyl" path="res://imported_assets/HeroandOpponents_v1/5 Enemy/idle-2.png" id="20_xfrpv"]
+[ext_resource type="Script" path="res://scripts/SkeletonPlayerDetect.gd" id="26_3xr0i"]
+[ext_resource type="Shape2D" uid="uid://ct862kx4racx0" path="res://prefabs/Collisions/SkeletonCollision.tres" id="28_jhuib"]
+[ext_resource type="Shape2D" uid="uid://bpc41aktp2caq" path="res://prefabs/Collisions/BowLineOfSight.tres" id="29_te6mn"]
+
+[sub_resource type="Animation" id="Animation_vu8m2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_w5aug")]
+}
+
+[sub_resource type="Animation" id="Animation_akhv3"]
+resource_name = "attack"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 2.2),
+"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05),
+"update": 1,
+"values": [ExtResource("4_ovwxh"), ExtResource("5_powpo"), ExtResource("6_cemnm"), ExtResource("6_cemnm"), ExtResource("6_cemnm"), ExtResource("7_hhea2"), ExtResource("8_u1u8m"), ExtResource("5_powpo"), ExtResource("16_1ewsr")]
+}
+
+[sub_resource type="Animation" id="Animation_7a61y"]
+resource_name = "hit"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("16_ooxcn"), ExtResource("17_77gru"), ExtResource("18_cdhlg"), ExtResource("16_ooxcn"), ExtResource("17_77gru"), ExtResource("18_cdhlg"), ExtResource("19_dtl78")]
+}
+
+[sub_resource type="Animation" id="Animation_pghbh"]
+resource_name = "idle"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("20_xfrpv"), ExtResource("3_w5aug")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_af2cm"]
+_data = {
+"RESET": SubResource("Animation_vu8m2"),
+"attack": SubResource("Animation_akhv3"),
+"hit": SubResource("Animation_7a61y"),
+"idle": SubResource("Animation_pghbh")
+}
+
+[node name="BowSkeleton" type="CharacterBody2D"]
+collision_layer = 11
+collision_mask = 9
+script = ExtResource("1_dqnx8")
+
+[node name="Damageable" type="Node" parent="."]
+script = ExtResource("2_2sr1d")
+health = 50
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+position = Vector2(18, 0)
+texture = ExtResource("3_w5aug")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Marker2D/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_af2cm")
+}
+
+[node name="Hurtbox" type="Area2D" parent="Marker2D"]
+position = Vector2(0, 17)
+collision_layer = 8
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Hurtbox"]
+shape = ExtResource("4_qqlxs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 18)
+shape = ExtResource("28_jhuib")
+
+[node name="PlayerDetectL" type="Area2D" parent="."]
+position = Vector2(0, 17)
+collision_layer = 8
+collision_mask = 11
+script = ExtResource("26_3xr0i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectL"]
+position = Vector2(-111, -17)
+shape = ExtResource("29_te6mn")
+
+[node name="PlayerDetectR" type="Area2D" parent="."]
+position = Vector2(0, 17)
+collision_layer = 8
+collision_mask = 11
+script = ExtResource("26_3xr0i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectR"]
+position = Vector2(111, -17)
+shape = ExtResource("29_te6mn")
+
+[connection signal="hit_for_damage" from="Damageable" to="." method="_on_damageable_hit_for_damage"]
+[connection signal="animation_finished" from="Marker2D/Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="Marker2D/Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_entered" from="Marker2D/Hurtbox" to="Marker2D/Hurtbox" method="_on_body_entered"]
+[connection signal="body_entered" from="PlayerDetectL" to="PlayerDetectL" method="_on_body_entered"]
+[connection signal="body_exited" from="PlayerDetectL" to="PlayerDetectL" method="_on_body_exited"]
+[connection signal="in_range" from="PlayerDetectL" to="." method="_on_player_detect_l_in_range"]
+[connection signal="out_range" from="PlayerDetectL" to="." method="_on_player_detect_l_out_range"]
+[connection signal="body_entered" from="PlayerDetectR" to="PlayerDetectR" method="_on_body_entered"]
+[connection signal="body_exited" from="PlayerDetectR" to="PlayerDetectR" method="_on_body_exited"]
+[connection signal="in_range" from="PlayerDetectR" to="." method="_on_player_detect_r_in_range"]
+[connection signal="out_range" from="PlayerDetectR" to="." method="_on_player_detect_r_out_range"]
