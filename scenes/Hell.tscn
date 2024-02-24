@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://be7b2ad5n00dg"]
+[gd_scene load_steps=18 format=3 uid="uid://be7b2ad5n00dg"]
 
 [ext_resource type="Texture2D" uid="uid://51tgwhd0gqcf" path="res://imported_assets/Starter Tiles Platformer/FireSet.png" id="1_hlsqa"]
 [ext_resource type="TileSet" uid="uid://bff4dfvseoisw" path="res://tilesets/HellBG.tres" id="1_qf53c"]
@@ -125,6 +125,9 @@ size = Vector2(423.5, 77.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkuip"]
 size = Vector2(20, 150)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m3h3k"]
+load_path = "res://.godot/imported/fqLm3gr.png-e73a98a43292fd5710175328c7e67583.ctex"
 
 [node name="Node2D2" type="Node2D"]
 
@@ -329,6 +332,33 @@ shape = SubResource("RectangleShape2D_gkuip")
 [node name="LevelTransition" parent="." instance=ExtResource("11_t7wbj")]
 position = Vector2(6821, 450)
 level = ExtResource("12_d8e1n")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
+offset_left = 2517.0
+offset_top = -771.0
+offset_right = 4932.0
+offset_bottom = 2093.0
+texture = SubResource("CompressedTexture2D_m3h3k")
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+z_index = -2
+offset_left = 2409.0
+offset_top = -778.0
+offset_right = 3551.0
+offset_bottom = 2086.0
+texture = SubResource("CompressedTexture2D_m3h3k")
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/TextureRect"]
+z_index = -2
+offset_left = 1142.0
+offset_top = -804.0
+offset_right = 2284.0
+offset_bottom = 2060.0
+texture = SubResource("CompressedTexture2D_m3h3k")
+stretch_mode = 1
 
 [connection signal="body_entered" from="BrickBreakerTrigger/Area2D" to="BrickBreakerTrigger" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="BossSpawner/BossTrigger" to="BossSpawner" method="_on_boss_trigger_body_entered"]

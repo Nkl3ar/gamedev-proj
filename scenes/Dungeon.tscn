@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b0m6wxokbtji1"]
+[gd_scene load_steps=17 format=3 uid="uid://b0m6wxokbtji1"]
 
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreenDarkCastle.tres" id="1_q25np"]
 [ext_resource type="TileSet" uid="uid://ca1mgpg7pei1o" path="res://tilesets/BasicGreenDarkCastleBG.tres" id="1_ys3sf"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://buk3pk6vw7t7o" path="res://prefabs/Enemies/LanceSkeleton.tscn" id="11_s4hr2"]
 [ext_resource type="Script" path="res://scripts/BrickBreakerTrigger.gd" id="12_yvj5c"]
 [ext_resource type="PackedScene" uid="uid://dmki15e3es3q" path="res://prefabs/Scene/level_transition.tscn" id="13_8kdfy"]
+[ext_resource type="Texture2D" uid="uid://degj2iykagu4k" path="res://imported_assets/awesomeCavePixelArt.png" id="14_wbymj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvgvy"]
 size = Vector2(20, 150)
@@ -304,6 +305,15 @@ shape = SubResource("RectangleShape2D_mamhx")
 
 [node name="LevelTransition" parent="." instance=ExtResource("13_8kdfy")]
 position = Vector2(5821, -488)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
+offset_left = 4518.0
+offset_top = -945.0
+offset_right = 8329.0
+offset_bottom = 685.0
+texture = ExtResource("14_wbymj")
+stretch_mode = 1
 
 [connection signal="body_entered" from="BossSpawner/BossTrigger" to="BossSpawner" method="_on_boss_trigger_body_entered"]
 [connection signal="body_entered" from="BossSpawner2/BossTrigger" to="BossSpawner2" method="_on_boss_trigger_body_entered"]

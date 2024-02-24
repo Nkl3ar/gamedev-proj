@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dghw6d64b3rs3"]
+[gd_scene load_steps=15 format=3 uid="uid://dghw6d64b3rs3"]
 
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreenDarkCastle.tres" id="1_f7lks"]
 [ext_resource type="TileSet" uid="uid://ca1mgpg7pei1o" path="res://tilesets/BasicGreenDarkCastleBG.tres" id="1_vin28"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dmki15e3es3q" path="res://prefabs/Scene/level_transition.tscn" id="7_pgow6"]
 [ext_resource type="PackedScene" uid="uid://b0m6wxokbtji1" path="res://scenes/Dungeon.tscn" id="8_k8b08"]
 [ext_resource type="PackedScene" uid="uid://cw4dak7x6jjm7" path="res://prefabs/Scene/death_barrier.tscn" id="10_d7a5w"]
+[ext_resource type="Texture2D" uid="uid://dfravi1kivm8n" path="res://imported_assets/613a60ec0bf1df1.png" id="13_vxh7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rupbj"]
 size = Vector2(20, 150)
@@ -263,5 +264,14 @@ position = Vector2(4748, 305)
 
 [node name="CollisionBarrier12" parent="CollisionBarriers" instance=ExtResource("4_aus28")]
 position = Vector2(1983, -77)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
+offset_left = -2134.0
+offset_top = -1419.0
+offset_right = 11410.0
+offset_bottom = 1620.0
+texture = ExtResource("13_vxh7g")
+stretch_mode = 1
 
 [connection signal="body_entered" from="BossSpawner/BossTrigger" to="BossSpawner" method="_on_boss_trigger_body_entered"]
