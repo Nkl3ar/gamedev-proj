@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 class_name Arrow
-const SPEED = 100.0
+const SPEED = 250.0
 @export var damage: int = 1
 @export var Marker2dRotation: int = 1
 # Called when the node enters the scene tree for the first time.
