@@ -6,10 +6,11 @@ func _ready():
 	music_index = AudioServer.get_bus_index("Music")
 	$MarginContainer/VBoxContainer/SFX.value = GameManagerScript.sfxVol
 	$MarginContainer/VBoxContainer/Music.value = GameManagerScript.musicVol
+	GameManagerScript.get_time()
+	GameManagerScript.time=0.0
 	
 
 func _on_play_pressed():
-	GameManagerScript.time=0.0
 	get_tree().change_scene_to_file("res://scenes/Forest.tscn")
 
 
