@@ -67,7 +67,7 @@
 [ext_resource type="Texture2D" uid="uid://dnbqul1l5kfg5" path="res://imported_assets/portal_6/portal_6/portal64.png" id="65_jxw4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrmir"]
-size = Vector2(14, 33)
+size = Vector2(35, 150)
 
 [sub_resource type="Animation" id="Animation_4gont"]
 resource_name = "portal"
@@ -102,7 +102,7 @@ shape = SubResource("RectangleShape2D_yrmir")
 z_index = -1
 position = Vector2(-3, 14)
 scale = Vector2(0.055, 0.055)
-texture = ExtResource("65_jxw4g")
+texture = ExtResource("2_c65jm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
