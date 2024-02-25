@@ -15,6 +15,9 @@ func _on_play_pressed():
 
 
 func _on_info_pressed():
+	get_tree().change_scene_to_file("res://scenes/Info.tscn")
+
+func _on_speedrun_pressed():
 	get_tree().change_scene_to_file("res://scenes/Speedruns.tscn")
 
 
@@ -30,3 +33,5 @@ func _on_sfx_value_changed(value):
 func _on_music_value_changed(value):
 	GameManagerScript.musicVol = value
 	AudioServer.set_bus_volume_db(music_index, linear_to_db(value))
+
+

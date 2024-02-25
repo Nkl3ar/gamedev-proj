@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b73b3eq06rkt3"]
+[gd_scene load_steps=4 format=3 uid="uid://b73b3eq06rkt3"]
 
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_4fj3u"]
 [ext_resource type="Texture2D" uid="uid://cn8sg2h86o1rq" path="res://imported_assets/Menu1.jpg" id="2_y888b"]
+[ext_resource type="FontFile" uid="uid://bygumtjae5hoe" path="res://imported_assets/DancingScript-VariableFont_wght.ttf" id="3_sbjcy"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -71,9 +72,21 @@ position = Vector2(576, 324)
 scale = Vector2(1.06667, 1.06755)
 texture = ExtResource("2_y888b")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 114.0
+offset_right = 874.0
+offset_bottom = 272.0
+theme_override_fonts/bold_italics_font = ExtResource("3_sbjcy")
+theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/bold_italics_font_size = 90
+bbcode_enabled = true
+text = "[center][b][i]Demon Might Sob"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Info" to="." method="_on_info_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Speedrun" to="." method="_on_info_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Speedrun" to="." method="_on_speedrun_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/SFX" to="." method="_on_sfx_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/Music" to="." method="_on_music_value_changed"]
