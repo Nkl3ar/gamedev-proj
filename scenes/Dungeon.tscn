@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b0m6wxokbtji1"]
+[gd_scene load_steps=24 format=3 uid="uid://b0m6wxokbtji1"]
 
 [ext_resource type="Script" path="res://scripts/LevelInit.gd" id="1_ocner"]
 [ext_resource type="TileSet" uid="uid://bkcudh8ecnp2m" path="res://tilesets/BasicGreenDarkCastle.tres" id="1_q25np"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://d2j3r6w2gea15" path="res://music/Dungeon.mp3" id="16_hu6fd"]
 [ext_resource type="PackedScene" uid="uid://be7b2ad5n00dg" path="res://scenes/Hell.tscn" id="17_0y02u"]
 [ext_resource type="AudioStream" uid="uid://cys3ik4l4m7he" path="res://sfx/teleport.wav" id="17_suayx"]
+[ext_resource type="PackedScene" uid="uid://dblpy4fhackr2" path="res://prefabs/Enemies/VampireBat.tscn" id="21_pgaql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvgvy"]
 size = Vector2(20, 150)
@@ -344,6 +345,18 @@ bus = &"Music"
 stream = ExtResource("17_suayx")
 autoplay = true
 bus = &"Sfx"
+
+[node name="Bat10" parent="." instance=ExtResource("21_pgaql")]
+position = Vector2(6983, 313)
+
+[node name="Bat11" parent="." instance=ExtResource("21_pgaql")]
+position = Vector2(5346, 276)
+
+[node name="Bat12" parent="." instance=ExtResource("7_cew8p")]
+position = Vector2(2331, -473)
+
+[node name="Bat13" parent="." instance=ExtResource("7_cew8p")]
+position = Vector2(3076, -478)
 
 [connection signal="body_entered" from="BossSpawner/BossTrigger" to="BossSpawner" method="_on_boss_trigger_body_entered"]
 [connection signal="body_entered" from="BossSpawner2/BossTrigger" to="BossSpawner2" method="_on_boss_trigger_body_entered"]
