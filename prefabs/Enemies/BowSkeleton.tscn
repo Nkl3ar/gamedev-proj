@@ -147,6 +147,7 @@ bus = &"Sfx"
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="Marker2D"]
 stream = ExtResource("17_po1de")
+max_polyphony = 12
 bus = &"Sfx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
