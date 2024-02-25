@@ -263,6 +263,7 @@ bus = &"Sfx"
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="Marker2D"]
 stream = ExtResource("29_qhn26")
+volume_db = 24.0
 bus = &"Sfx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
